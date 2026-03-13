@@ -38,7 +38,7 @@ export function ProductLines({ onViewAll }: ProductLinesProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-extrabold text-center mb-4 text-[#0A0A0A]"
+          className="mb-4 text-center text-3xl font-extrabold text-[#0A0A0A] md:text-5xl"
         >
           Linhas Completas de Equipamentos Serigráficos
         </motion.h2>
@@ -47,12 +47,12 @@ export function ProductLines({ onViewAll }: ProductLinesProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-center text-[#374151] text-lg mb-12 max-w-3xl mx-auto"
+          className="mx-auto mb-8 max-w-3xl text-center text-base text-[#374151] md:mb-12 md:text-lg"
         >
           Máquinas para serigrafia, impressão têxtil, silk screen e estamparia profissional desenvolvidas para atender demandas técnicas específicas de produção industrial
         </motion.p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="mb-10 grid grid-cols-2 gap-4 md:mb-12 md:grid-cols-2 md:gap-6 lg:grid-cols-4">
           {products.map((product, index) => (
             <motion.div
               key={index}
@@ -61,19 +61,19 @@ export function ProductLines({ onViewAll }: ProductLinesProps) {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="group relative overflow-hidden rounded-2xl shadow-xl aspect-[3/4] cursor-pointer bg-white"
+              className="group relative cursor-pointer overflow-hidden rounded-[1.35rem] bg-white shadow-lg md:rounded-2xl md:shadow-xl aspect-[1/1.12] sm:aspect-[3/4]"
             >
               <img
                 src={product.image}
                 alt={product.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
               {/* Subtle Orange Overlay - only on bottom */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#FF5722]/60 via-transparent to-transparent pointer-events-none"></div>
               
               {/* Title Bar - Fixed height */}
-              <div className="absolute bottom-0 left-0 right-0 bg-[#FF5722] py-3 px-4 transition-all duration-300 group-hover:py-4">
-                <h3 className="text-base md:text-lg font-bold text-white text-center leading-tight">
+              <div className="absolute bottom-0 left-0 right-0 bg-[#FF5722] px-3 py-3 transition-all duration-300 group-hover:py-4 md:px-4">
+                <h3 className="text-center text-sm font-bold leading-tight text-white md:text-lg">
                   {product.title}
                 </h3>
               </div>
@@ -92,7 +92,7 @@ export function ProductLines({ onViewAll }: ProductLinesProps) {
           className="flex justify-center"
         >
           <Button
-            className="bg-white hover:bg-gray-100 text-[#374151] border-2 border-gray-300 text-lg font-semibold rounded-full px-8 py-6"
+            className="rounded-full border-2 border-gray-300 bg-white px-7 py-5 text-base font-semibold text-[#374151] hover:bg-gray-100 md:px-8 md:py-6 md:text-lg"
             onClick={onViewAll}
           >
             Ver Todos <ArrowRight className="ml-2" size={20} />
