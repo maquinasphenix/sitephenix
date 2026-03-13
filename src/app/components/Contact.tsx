@@ -68,7 +68,7 @@ export function Contact() {
               type: "success",
               text:
                 payload?.message ??
-                "Mensagem enviada com sucesso. Você receberá uma confirmação por email.",
+                "Mensagem recebida com sucesso. A equipe da Phenix entrará em contato em breve.",
             },
       );
     } catch (error) {

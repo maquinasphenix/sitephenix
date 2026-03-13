@@ -1,4 +1,5 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
+import { createClient } from "npm:@supabase/supabase-js@2";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -80,16 +81,8 @@ Deno.serve(async (request) => {
   const resendApiKey = Deno.env.get("RESEND_API_KEY");
   const contactFromEmail = Deno.env.get("CONTACT_FROM_EMAIL");
   const contactToEmail = Deno.env.get("CONTACT_TO_EMAIL") ?? PHENIX_TO_EMAIL;
-
-  if (!resendApiKey || !contactFromEmail) {
-    return jsonResponse(
-      {
-        error:
-          "Missing RESEND_API_KEY or CONTACT_FROM_EMAIL in Supabase secrets.",
-      },
-      500,
-    );
-  }
+  const supabaseUrl = Deno.env.get("SUPABASE_URL");
+  const supabaseServiceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
 
   const payload = (await request.json().catch(() => null)) as ContactPayload | null;
 
@@ -111,6 +104,50 @@ Deno.serve(async (request) => {
 
   if (!isValidEmail(email)) {
     return jsonResponse({ error: "Informe um email válido." }, 400);
+  }
+
+  if (!supabaseUrl || !supabaseServiceRoleKey) {
+    return jsonResponse(
+      {
+        error:
+          "Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY in function environment.",
+      },
+      500,
+    );
+  }
+
+  const supabase = createClient(supabaseUrl, supabaseServiceRoleKey, {
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
+    },
+  });
+
+  const { error: insertError } = await supabase.from("contatos").insert({
+    nome,
+    email,
+    telefone,
+    mensagem,
+    origem: "site",
+    status: "novo",
+  });
+
+  if (insertError) {
+    return jsonResponse(
+      {
+        error: "Falha ao registrar o contato no banco.",
+        details: insertError.message,
+      },
+      500,
+    );
+  }
+
+  if (!resendApiKey || !contactFromEmail) {
+    return jsonResponse({
+      success: true,
+      message:
+        "Mensagem recebida com sucesso. A equipe da Phenix entrará em contato em breve.",
+    });
   }
 
   const escapedNome = escapeHtml(nome);
@@ -190,6 +227,7 @@ Deno.serve(async (request) => {
 
   return jsonResponse({
     success: true,
-    message: "Contato enviado com sucesso. Emails disparados.",
+    message:
+      "Mensagem recebida com sucesso. A equipe da Phenix entrará em contato em breve.",
   });
 });
