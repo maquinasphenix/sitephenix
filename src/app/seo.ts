@@ -363,15 +363,6 @@ export function getSeoData(page: string) {
         }),
       ],
     },
-    tutorial: {
-      title: "Tutorial de Publicação e Integração | Phenix Máquinas",
-      description:
-        "Passo a passo temporário para configurar Supabase, Google Places, GitHub e publicação do site da Phenix Máquinas.",
-      canonicalPath: "/tutorial-publicacao",
-      openGraphType: "website" as const,
-      robotsContent: "noindex, nofollow",
-      structuredData: [organizationSchema],
-    },
     "teste-supabase": {
       title: "Teste Supabase | Phenix Máquinas",
       description:

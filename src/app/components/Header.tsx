@@ -4,13 +4,9 @@ import { Button } from "./ui/button";
 
 interface HeaderProps {
   onNavigateToProducts?: () => void;
-  onNavigateToTutorial?: () => void;
 }
 
-export function Header({
-  onNavigateToProducts,
-  onNavigateToTutorial,
-}: HeaderProps) {
+export function Header({ onNavigateToProducts }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
@@ -28,11 +24,6 @@ export function Header({
     } else {
       scrollToSection("produtos");
     }
-  };
-
-  const handleTutorialClick = () => {
-    setIsMenuOpen(false);
-    onNavigateToTutorial?.();
   };
 
   return (
@@ -76,14 +67,6 @@ export function Header({
             >
               Contato
             </button>
-            {onNavigateToTutorial ? (
-              <button
-                onClick={handleTutorialClick}
-                className="hover:text-[#FF5722] transition-colors font-semibold text-base"
-              >
-                Tutorial
-              </button>
-            ) : null}
             <Button
               onClick={() => scrollToSection("contato")}
               className="bg-[#FF5722] hover:bg-[#E64A19] text-white rounded px-8 py-5 font-bold text-base shadow-lg"
@@ -134,14 +117,6 @@ export function Header({
             >
               Contato
             </button>
-            {onNavigateToTutorial ? (
-              <button
-                onClick={handleTutorialClick}
-                className="hover:text-[#FF5722] transition-colors text-left font-semibold py-2"
-              >
-                Tutorial
-              </button>
-            ) : null}
             <Button
               onClick={() => scrollToSection("contato")}
               className="bg-[#FF5722] hover:bg-[#E64A19] text-white rounded w-full font-bold py-5 text-base shadow-lg"

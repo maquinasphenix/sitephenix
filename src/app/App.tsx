@@ -19,7 +19,6 @@ import { EsteiraTransportadoraPage } from "./components/EsteiraTransportadoraPag
 import { EstufaTunelPage } from "./components/EstufaTunelPage";
 import { MesaExposicaoPage } from "./components/MesaExposicaoPage";
 import { MisturadorTintasPage } from "./components/MisturadorTintasPage";
-import { SetupTutorialPage } from "./components/SetupTutorialPage";
 import { SupabaseTestPage } from "./components/SupabaseTestPage";
 import { getSeoData } from "./seo";
 import { useEffect, useState } from "react";
@@ -35,7 +34,6 @@ type PageType =
   | "estufa-tunel"
   | "mesa-exposicao"
   | "misturador-tintas"
-  | "tutorial"
   | "teste-supabase";
 
 export default function App() {
@@ -72,8 +70,6 @@ export default function App() {
         setCurrentPage("mesa-exposicao");
       } else if (path === "/misturador-tintas") {
         setCurrentPage("misturador-tintas");
-      } else if (path === "/tutorial-publicacao") {
-        setCurrentPage("tutorial");
       } else if (path === "/teste-supabase") {
         setCurrentPage("teste-supabase");
       } else {
@@ -149,26 +145,11 @@ export default function App() {
     window.history.pushState({}, "", "/misturador-tintas");
   };
 
-  const navigateToTutorial = () => {
-    setCurrentPage("tutorial");
-    window.history.pushState({}, "", "/tutorial-publicacao");
-  };
-
   if (currentPage === "teste-supabase") {
     return (
       <>
         <SeoHead {...seo} />
         <SupabaseTestPage onBack={navigateToHome} />
-        <WhatsAppButton />
-      </>
-    );
-  }
-
-  if (currentPage === "tutorial") {
-    return (
-      <>
-        <SeoHead {...seo} />
-        <SetupTutorialPage onBack={navigateToHome} />
         <WhatsAppButton />
       </>
     );
@@ -280,7 +261,6 @@ export default function App() {
       <div className="min-h-screen">
         <Header
           onNavigateToProducts={navigateToProducts}
-          onNavigateToTutorial={navigateToTutorial}
         />
         <Hero onNavigateToProducts={navigateToProducts} />
         <ProductLines onViewAll={navigateToProducts} />
