@@ -12,12 +12,76 @@ export function Contact() {
     telefone: "",
     mensagem: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState<{
+    type: "success" | "warning" | "error";
+    text: string;
+  } | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Obrigado pelo contato! Retornaremos em breve.");
-    setFormData({ nome: "", email: "", telefone: "", mensagem: "" });
+    setIsSubmitting(true);
+    setSubmitMessage(null);
+
+    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL?.trim();
+    const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY?.trim();
+
+    if (!supabaseUrl || !supabaseAnonKey) {
+      setSubmitMessage({
+        type: "error",
+        text:
+          "Formulário temporariamente indisponível. Configure o ambiente Supabase para envio de emails.",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        `${supabaseUrl.replace(/\/+$/, "")}/functions/v1/contact-form`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${supabaseAnonKey}`,
+            apikey: supabaseAnonKey,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        },
+      );
+
+      const payload = (await response.json().catch(() => null)) as
+        | { success?: boolean; message?: string; warning?: string; error?: string }
+        | null;
+
+      if (!response.ok) {
+        throw new Error(
+          payload?.error ?? "Não foi possível enviar sua mensagem agora.",
+        );
+      }
+
+      setFormData({ nome: "", email: "", telefone: "", mensagem: "" });
+      setSubmitMessage(
+        payload?.warning
+          ? { type: "warning", text: payload.warning }
+          : {
+              type: "success",
+              text:
+                payload?.message ??
+                "Mensagem enviada com sucesso. Você receberá uma confirmação por email.",
+            },
+      );
+    } catch (error) {
+      setSubmitMessage({
+        type: "error",
+        text:
+          error instanceof Error
+            ? error.message
+            : "Não foi possível enviar sua mensagem agora.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -79,10 +143,25 @@ export function Contact() {
 
               <Button
                 type="submit"
+                disabled={isSubmitting}
                 className="bg-[#FF5722] hover:bg-[#E64A19] text-white w-full py-6 text-lg font-semibold"
               >
-                Enviar
+                {isSubmitting ? "Enviando..." : "Enviar"}
               </Button>
+
+              {submitMessage ? (
+                <div
+                  className={`rounded-xl border px-4 py-3 text-sm leading-6 ${
+                    submitMessage.type === "success"
+                      ? "border-emerald-500/40 bg-emerald-500/10 text-emerald-200"
+                      : submitMessage.type === "warning"
+                        ? "border-amber-500/40 bg-amber-500/10 text-amber-200"
+                        : "border-red-500/40 bg-red-500/10 text-red-200"
+                  }`}
+                >
+                  {submitMessage.text}
+                </div>
+              ) : null}
             </form>
           </div>
 
