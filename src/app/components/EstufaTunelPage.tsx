@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { useState } from "react";
 import tunelImg1 from "figma:asset/3dfe3bba6d6e2e0cca6fe29cc7d83e3bfd433437.png";
 import tunelImg2 from "figma:asset/0cb09e0b031cce6727274e2500f0e6903b1e121d.png";
+import { getWhatsAppUrl, SALES_PHONE_DISPLAY } from "../contactInfo";
 
 interface EstufaTunelPageProps {
   onBack: () => void;
@@ -287,11 +288,11 @@ export function EstufaTunelPage({ onBack }: EstufaTunelPageProps) {
             </p>
             <Button
               onClick={() =>
-                window.open("https://wa.me/554136331008", "_blank")
+                window.open(getWhatsAppUrl(), "_blank")
               }
               className="bg-[#FF5722] hover:bg-[#E64A19] text-white rounded px-8 py-6 text-lg font-bold"
             >
-              WhatsApp: (41) 3633-1008
+              WhatsApp: {SALES_PHONE_DISPLAY}
             </Button>
           </div>
         </section>

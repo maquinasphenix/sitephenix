@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { useState } from "react";
 import estufaImg1 from "figma:asset/c8b8cc5616caefc6f994ac29f6a187e6dfea6a94.png";
 import estufaImg2 from "figma:asset/0d6196d6d0bd0235aac982f5cf909c2dc0ffce71.png";
+import { getWhatsAppUrl, SALES_PHONE_DISPLAY } from "../contactInfo";
 
 interface EstufaCompactaPageProps {
   onBack: () => void;
@@ -362,11 +363,11 @@ export function EstufaCompactaPage({ onBack }: EstufaCompactaPageProps) {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 onClick={() =>
-                  window.open("https://wa.me/554136331008", "_blank")
+                  window.open(getWhatsAppUrl(), "_blank")
                 }
                 className="bg-[#FF5722] hover:bg-[#E64A19] text-white rounded px-8 py-6 text-lg font-bold"
               >
-                WhatsApp: (41) 3633-1008
+                WhatsApp: {SALES_PHONE_DISPLAY}
               </Button>
               <Button
                 onClick={onBack}

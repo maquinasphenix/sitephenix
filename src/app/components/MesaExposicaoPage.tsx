@@ -3,6 +3,7 @@ import { Button } from "./ui/button";
 import { motion } from "motion/react";
 import { useState } from "react";
 import mesaImg from "figma:asset/5d6a95de592883158147a5b48ccc31f3c3522d76.png";
+import { getWhatsAppUrl, SALES_PHONE_DISPLAY } from "../contactInfo";
 
 interface MesaExposicaoPageProps {
   onBack: () => void;
@@ -336,11 +337,11 @@ export function MesaExposicaoPage({ onBack }: MesaExposicaoPageProps) {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 onClick={() =>
-                  window.open("https://wa.me/554136331008", "_blank")
+                  window.open(getWhatsAppUrl(), "_blank")
                 }
                 className="bg-[#FF5722] hover:bg-[#E64A19] text-white rounded px-8 py-6 text-lg font-bold"
               >
-                WhatsApp: (41) 3633-1008
+                WhatsApp: {SALES_PHONE_DISPLAY}
               </Button>
               <Button
                 onClick={onBack}

@@ -8,7 +8,7 @@ const corsHeaders = {
   "Content-Type": "application/json; charset=utf-8",
 };
 
-const PHENIX_TO_EMAIL = "maquinasphenix@gmail.com";
+const PHENIX_TO_EMAIL = "vendas@phenixmaquinas.com.br";
 
 type ContactPayload = {
   nome?: string;

@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { useState } from "react";
 import estufaImg1 from "figma:asset/18135b82e31a86e596cb05211800c9201f3ab850.png";
 import estufaImg2 from "figma:asset/37f3891e98ff0b33f0f471b278e5d770a33fb09b.png";
+import { getWhatsAppUrl, SALES_PHONE_DISPLAY } from "../contactInfo";
 
 interface EstufaIndustrialPageProps {
   onBack: () => void;
@@ -175,10 +176,10 @@ export function EstufaIndustrialPage({ onBack }: EstufaIndustrialPageProps) {
               Entre em contato e conheça as especificações completas da estufa industrial
             </p>
             <Button
-              onClick={() => window.open("https://wa.me/554136331008", "_blank")}
+              onClick={() => window.open(getWhatsAppUrl(), "_blank")}
               className="bg-[#FF5722] hover:bg-[#E64A19] text-white rounded px-8 py-6 text-lg font-bold"
             >
-              WhatsApp: (41) 3633-1008
+              WhatsApp: {SALES_PHONE_DISPLAY}
             </Button>
           </div>
         </section>

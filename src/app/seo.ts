@@ -1,3 +1,5 @@
+import { SALES_EMAIL, SALES_PHONE_E164 } from "./contactInfo";
+
 const SITE_URL = "https://phenixmaquinas.com.br";
 
 function createProductSchema({
@@ -39,8 +41,8 @@ export function getSeoData(page: string) {
     "@type": "Organization",
     name: "Phenix Máquinas",
     url: SITE_URL,
-    telephone: "+55-41-3633-1008",
-    email: "vendas@phenixmaquinas.com.br",
+    telephone: SALES_PHONE_E164,
+    email: SALES_EMAIL,
     sameAs: [
       "https://instagram.com/phenixmaquinas",
       "https://www.facebook.com/profile.php?id=100057607622731",

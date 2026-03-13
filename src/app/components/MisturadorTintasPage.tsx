@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { useState } from "react";
 import misturadorImg1 from "figma:asset/7df05c055d23ea38d257816619777858d8c0e193.png";
 import misturadorImg2 from "figma:asset/e9ddcfa442bbd1d7a13875e40b304971d6ed2e39.png";
+import { getWhatsAppUrl, SALES_PHONE_DISPLAY } from "../contactInfo";
 
 interface MisturadorTintasPageProps {
   onBack: () => void;
@@ -400,11 +401,11 @@ export function MisturadorTintasPage({ onBack }: MisturadorTintasPageProps) {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 onClick={() =>
-                  window.open("https://wa.me/554136331008", "_blank")
+                  window.open(getWhatsAppUrl(), "_blank")
                 }
                 className="bg-[#FF5722] hover:bg-[#E64A19] text-white rounded px-8 py-6 text-lg font-bold"
               >
-                WhatsApp: (41) 3633-1008
+                WhatsApp: {SALES_PHONE_DISPLAY}
               </Button>
               <Button
                 onClick={onBack}

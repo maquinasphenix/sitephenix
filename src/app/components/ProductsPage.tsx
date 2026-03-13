@@ -9,6 +9,7 @@ import estufaTunel from "figma:asset/3dfe3bba6d6e2e0cca6fe29cc7d83e3bfd433437.pn
 import copymasterImg from "figma:asset/8844910539f927b31804c8e3cda008ffa903f5c8.png";
 import mesaExposicaoImg from "figma:asset/5d6a95de592883158147a5b48ccc31f3c3522d76.png";
 import misturadorImg from "figma:asset/7df05c055d23ea38d257816619777858d8c0e193.png";
+import { getWhatsAppUrl } from "../contactInfo";
 
 const categories = [
   {
@@ -268,7 +269,7 @@ export function ProductsPage({
               Nossa equipe técnica pode ajudar você a escolher o modelo ideal para sua produção
             </p>
             <Button
-              onClick={() => window.open("https://wa.me/554136331008", "_blank")}
+              onClick={() => window.open(getWhatsAppUrl(), "_blank")}
               className="bg-[#FF5722] hover:bg-[#E64A19] text-white rounded px-8 py-6 text-base md:text-lg font-bold shadow-lg"
             >
               Falar com Especialista
@@ -377,7 +378,7 @@ export function ProductsPage({
               Nossa equipe técnica pode ajudar você a escolher o modelo ideal para sua produção
             </p>
             <Button
-              onClick={() => window.open("https://wa.me/554136331008", "_blank")}
+              onClick={() => window.open(getWhatsAppUrl(), "_blank")}
               className="bg-[#FF5722] hover:bg-[#E64A19] text-white rounded px-8 py-6 text-base md:text-lg font-bold shadow-lg"
             >
               Falar com Especialista
@@ -547,7 +548,7 @@ export function ProductsPage({
               Fale com Especialista
             </Button>
             <Button
-              onClick={() => window.open("https://wa.me/554136331008", "_blank")}
+              onClick={() => window.open(getWhatsAppUrl(), "_blank")}
               className="bg-green-500 hover:bg-green-600 text-white rounded px-8 py-6 text-base md:text-lg font-bold shadow-lg touch-manipulation"
             >
               WhatsApp

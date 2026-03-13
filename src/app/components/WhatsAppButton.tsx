@@ -1,9 +1,10 @@
 import { MessageCircle } from "lucide-react";
 import { motion } from "motion/react";
+import { getWhatsAppUrl } from "../contactInfo";
 
 export function WhatsAppButton() {
   const handleWhatsAppClick = () => {
-    window.open("https://wa.me/554136331008", "_blank");
+    window.open(getWhatsAppUrl(), "_blank");
   };
 
   return (

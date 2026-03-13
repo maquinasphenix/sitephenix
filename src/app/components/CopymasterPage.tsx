@@ -18,6 +18,7 @@ import {
 import { useState } from "react";
 import image1 from "figma:asset/8844910539f927b31804c8e3cda008ffa903f5c8.png";
 import image2 from "figma:asset/a6430bfc52a6561e0de852486190d98cd56804f6.png";
+import { getWhatsAppUrl } from "../contactInfo";
 
 interface CopymasterPageProps {
   onBack: () => void;
@@ -165,17 +166,21 @@ export function CopymasterPage({ onBack }: CopymasterPageProps) {
   const images = [image1, image2];
 
   const handleWhatsApp = () => {
-    const message = encodeURIComponent(
-      "Olá! Gostaria de mais informações sobre a COPYMASTER - Mesa de Exposição UV."
+    window.open(
+      getWhatsAppUrl(
+        "Olá! Gostaria de mais informações sobre a COPYMASTER - Mesa de Exposição UV.",
+      ),
+      "_blank",
     );
-    window.open(`https://wa.me/5511999999999?text=${message}`, "_blank");
   };
 
   const handleQuote = () => {
-    const message = encodeURIComponent(
-      "Olá! Gostaria de solicitar um orçamento para a COPYMASTER - Mesa de Exposição UV."
+    window.open(
+      getWhatsAppUrl(
+        "Olá! Gostaria de solicitar um orçamento para a COPYMASTER - Mesa de Exposição UV.",
+      ),
+      "_blank",
     );
-    window.open(`https://wa.me/5511999999999?text=${message}`, "_blank");
   };
 
   return (

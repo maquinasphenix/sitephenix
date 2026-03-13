@@ -2,6 +2,7 @@ import { ArrowLeft, Ruler, Zap, Gauge, Settings } from "lucide-react";
 import { Button } from "./ui/button";
 import { motion } from "motion/react";
 import esteiraImg from "figma:asset/f167f5cb0d1405a53a50165dbeb1c0e99d5267ee.png";
+import { getWhatsAppUrl, SALES_PHONE_DISPLAY } from "../contactInfo";
 
 interface EsteiraTransportadoraPageProps {
   onBack: () => void;
@@ -226,11 +227,11 @@ export function EsteiraTransportadoraPage({
             </p>
             <Button
               onClick={() =>
-                window.open("https://wa.me/554136331008", "_blank")
+                window.open(getWhatsAppUrl(), "_blank")
               }
               className="bg-[#FF5722] hover:bg-[#E64A19] text-white rounded px-8 py-6 text-lg font-bold"
             >
-              WhatsApp: (41) 3633-1008
+              WhatsApp: {SALES_PHONE_DISPLAY}
             </Button>
           </div>
         </section>

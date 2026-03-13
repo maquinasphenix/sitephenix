@@ -4,6 +4,7 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { useState } from "react";
 import { motion } from "motion/react";
+import { SALES_EMAIL, SALES_PHONE_DISPLAY } from "../contactInfo";
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -194,7 +195,7 @@ export function Contact() {
               <Phone className="text-[#FF5722] flex-shrink-0" size={24} />
               <div>
                 <h3 className="font-bold text-lg mb-1">Vendas Phenix</h3>
-                <p className="text-gray-400">(41) 3633-1008</p>
+                <p className="text-gray-400">{SALES_PHONE_DISPLAY}</p>
               </div>
             </div>
 
@@ -202,7 +203,7 @@ export function Contact() {
               <Mail className="text-[#FF5722] flex-shrink-0" size={24} />
               <div>
                 <h3 className="font-bold text-lg mb-1">E-mail</h3>
-                <p className="text-gray-400">vendas@phenixmaquinas.com.br</p>
+                <p className="text-gray-400">{SALES_EMAIL}</p>
               </div>
             </div>
 

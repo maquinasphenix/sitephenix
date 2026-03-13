@@ -17,6 +17,7 @@ import {
 import { useState } from "react";
 import image1 from "figma:asset/187e68678401201a04046744339d3c0e217c24e8.png";
 import image2 from "figma:asset/fe9de625c251dd03ceaba91f42a80e7e9d4afc4e.png";
+import { getWhatsAppUrl } from "../contactInfo";
 
 interface PhenixtronPageProps {
   onBack: () => void;
@@ -133,10 +134,12 @@ export function PhenixtronPage({ onBack }: PhenixtronPageProps) {
   };
 
   const handleQuoteRequest = () => {
-    const message = encodeURIComponent(
-      "Olá! Gostaria de solicitar um orçamento para a impressora PHENIXTRON."
+    window.open(
+      getWhatsAppUrl(
+        "Olá! Gostaria de solicitar um orçamento para a impressora PHENIXTRON.",
+      ),
+      "_blank",
     );
-    window.open(`https://wa.me/554136331008?text=${message}`, "_blank");
   };
 
   return (
