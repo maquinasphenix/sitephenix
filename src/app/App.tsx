@@ -154,11 +154,6 @@ export default function App() {
     window.history.pushState({}, "", "/tutorial-publicacao");
   };
 
-  const navigateToSupabaseTest = () => {
-    setCurrentPage("teste-supabase");
-    window.history.pushState({}, "", "/teste-supabase");
-  };
-
   if (currentPage === "teste-supabase") {
     return (
       <>
@@ -297,13 +292,6 @@ export default function App() {
         <FAQ />
         <Contact />
         <WhatsAppButton />
-        <button
-          type="button"
-          onClick={navigateToSupabaseTest}
-          className="fixed bottom-6 left-6 z-40 rounded-full bg-[#111827] px-4 py-3 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-[#FF5722]"
-        >
-          Teste Supabase
-        </button>
       </div>
     </>
   );

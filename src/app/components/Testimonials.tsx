@@ -24,10 +24,12 @@ export function Testimonials() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    const googleReviewsEnabled =
+      import.meta.env.VITE_ENABLE_GOOGLE_REVIEWS?.trim() === "true";
     const supabaseUrl = import.meta.env.VITE_SUPABASE_URL?.trim();
     const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY?.trim();
 
-    if (!supabaseUrl || !supabaseAnonKey) {
+    if (!googleReviewsEnabled || !supabaseUrl || !supabaseAnonKey) {
       setIsLoading(false);
       return;
     }

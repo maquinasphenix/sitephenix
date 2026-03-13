@@ -1,6 +1,6 @@
 import { ArrowLeft } from "lucide-react";
 import { useEffect, useState } from "react";
-import { supabase } from "../../lib/supabase";
+import { getSupabaseClient } from "../../lib/supabase";
 import { Button } from "./ui/button";
 
 type Teste = {
@@ -20,6 +20,16 @@ export function SupabaseTestPage({ onBack }: SupabaseTestPageProps) {
 
   useEffect(() => {
     async function carregar() {
+      const supabase = getSupabaseClient();
+
+      if (!supabase) {
+        setErro(
+          "Supabase não configurado neste ambiente. Defina VITE_SUPABASE_URL e VITE_SUPABASE_ANON_KEY.",
+        );
+        setCarregando(false);
+        return;
+      }
+
       const { data, error } = await supabase.from("testes").select("*");
 
       console.log("dados do banco:", data);
