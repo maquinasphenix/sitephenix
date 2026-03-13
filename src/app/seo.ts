@@ -45,7 +45,7 @@ export function getSeoData(page: string) {
     email: SALES_EMAIL,
     sameAs: [
       "https://instagram.com/phenixmaquinas",
-      "https://www.facebook.com/profile.php?id=100057607622731",
+      "https://www.facebook.com/profile.php?id=61584894879276",
     ],
     address: {
       "@type": "PostalAddress",

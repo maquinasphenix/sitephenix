@@ -227,7 +227,7 @@ export function Contact() {
               <div>
                 <h3 className="font-bold text-lg mb-1">Facebook</h3>
                 <a 
-                  href="https://www.facebook.com/profile.php?id=100057607622731" 
+                  href="https://www.facebook.com/profile.php?id=61584894879276" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-[#FF5722] transition-colors"
