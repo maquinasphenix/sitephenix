@@ -182,10 +182,11 @@ Deno.serve(async (request) => {
   if (!phenixEmail.ok) {
     return jsonResponse(
       {
-        error: "Falha ao enviar o email para a Phenix.",
-        details: phenixEmail.payload,
+        success: true,
+        warning:
+          "Recebemos o contato e salvamos seus dados, mas o encaminhamento por email ainda esta em configuracao.",
       },
-      502,
+      200,
     );
   }
 
