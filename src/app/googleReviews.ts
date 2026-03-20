@@ -20,11 +20,13 @@ export interface GoogleReviewsPayload {
   reviews: GoogleReview[];
 }
 
+export const GOOGLE_PROFILE_URL = "https://share.google/Jqem3SWXuus8XO55j";
+
 export const fallbackReviewsPayload: GoogleReviewsPayload = {
   placeName: "Phenix Máquinas",
   rating: 5,
   userRatingCount: 11,
-  googleMapsUri: "https://www.google.com/search?q=Phenix+M%C3%A1quinas",
+  googleMapsUri: GOOGLE_PROFILE_URL,
   reviews: [
     {
       id: "fallback-1",

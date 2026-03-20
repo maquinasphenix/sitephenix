@@ -5,6 +5,7 @@ import logo from "figma:asset/f5d35ff290de52c0f7fa99397cd54447d8db93ce.png";
 import {
   buildGoogleReviewsFunctionUrl,
   fallbackReviewsPayload,
+  GOOGLE_PROFILE_URL,
   type GoogleReview,
   type GoogleReviewsPayload,
   selectRandomReviews,
@@ -124,17 +125,15 @@ export function Testimonials() {
                 ? "Atualizado automaticamente com avaliações do Google"
                 : "Depoimentos em destaque de clientes"}
             </span>
-            {summary.googleMapsUri ? (
-              <a
-                href={summary.googleMapsUri}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 font-semibold text-[#0A0A0A] transition-colors hover:border-[#FF5722] hover:text-[#FF5722]"
-              >
-                Ver perfil no Google
-                <ExternalLink size={16} />
-              </a>
-            ) : null}
+            <a
+              href={GOOGLE_PROFILE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 font-semibold text-[#0A0A0A] transition-colors hover:border-[#FF5722] hover:text-[#FF5722]"
+            >
+              Ver perfil no Google
+              <ExternalLink size={16} />
+            </a>
           </div>
         </motion.div>
 
