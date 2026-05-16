@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 
 const catalogItems = [
   {
-    title: "Impressora Serigráfica Semiautomática",
+    title: "Impressora Serigráfica Ferramenta",
     subtitle: "PHENIXTRON para adesivos, rótulos e comunicação visual",
     href: "/impressora-serigrafica-semi-automatica-phenixtron",
   },
