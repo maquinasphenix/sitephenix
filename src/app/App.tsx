@@ -12,6 +12,7 @@ import { ProductsPage } from "./components/ProductsPage";
 import { SeoHead } from "./components/SeoHead";
 import { SeoCatalog } from "./components/SeoCatalog";
 import { PhenixtronPage } from "./components/PhenixtronPage";
+import { PratikaPage } from "./components/PratikaPage";
 import { CopymasterPage } from "./components/CopymasterPage";
 import { EstufaCompactaPage } from "./components/EstufaCompactaPage";
 import { EstufaIndustrialPage } from "./components/EstufaIndustrialPage";
@@ -27,6 +28,7 @@ type PageType =
   | "home"
   | "products"
   | "phenixtron"
+  | "pratika"
   | "copymaster"
   | "estufa-compacta"
   | "estufa-industrial"
@@ -53,6 +55,8 @@ export default function App() {
         path === "/phenixtron"
       ) {
         setCurrentPage("phenixtron");
+      } else if (path === "/pratika") {
+        setCurrentPage("pratika");
       } else if (
         path === "/mesa-exposicao-uv-serigrafia-copymaster" ||
         path === "/copymaster"
@@ -104,6 +108,26 @@ export default function App() {
       "",
       "/impressora-serigrafica-semi-automatica-phenixtron",
     );
+  };
+
+  const navigateToPratika = () => {
+    setCurrentPage("pratika");
+    window.history.pushState({}, "", "/pratika");
+  };
+
+  const handleNavigateToProduct = (productPath: string) => {
+    if (
+      productPath === "/impressora-serigrafica-semi-automatica-phenixtron" ||
+      productPath === "/phenixtron"
+    ) {
+      navigateToPhenixtron();
+      return;
+    }
+
+    if (productPath === "/pratika") {
+      navigateToPratika();
+      return;
+    }
   };
 
   const navigateToCopymaster = () => {
@@ -235,13 +259,23 @@ export default function App() {
     );
   }
 
+  if (currentPage === "pratika") {
+    return (
+      <>
+        <SeoHead {...seo} />
+        <PratikaPage onBack={navigateToProducts} />
+        <WhatsAppButton />
+      </>
+    );
+  }
+
   if (currentPage === "products") {
     return (
       <>
         <SeoHead {...seo} />
         <ProductsPage
           onBack={navigateToHome}
-          onNavigateToProduct={navigateToPhenixtron}
+          onNavigateToProduct={handleNavigateToProduct}
           onNavigateToCopymaster={navigateToCopymaster}
           onNavigateToEstufaCompacta={navigateToEstufaCompacta}
           onNavigateToEstufaIndustrial={navigateToEstufaIndustrial}
@@ -259,9 +293,7 @@ export default function App() {
     <>
       <SeoHead {...seo} />
       <div className="min-h-screen">
-        <Header
-          onNavigateToProducts={navigateToProducts}
-        />
+        <Header onNavigateToProducts={navigateToProducts} />
         <Hero onNavigateToProducts={navigateToProducts} />
         <ProductLines onViewAll={navigateToProducts} />
         <Solutions />
