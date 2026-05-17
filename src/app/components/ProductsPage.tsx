@@ -70,6 +70,7 @@ const labProducts = [
     image: misturadorImg,
   },
 ];
+
 const semiProducts = [
   {
     title: "PHENIXTRON",
@@ -87,6 +88,7 @@ const semiProducts = [
     image: misturadorImg,
   },
 ];
+
 const dryingProducts = [
   {
     title: "Estufa Compacta de Secagem",
@@ -136,6 +138,7 @@ export function ProductsPage({
   const [showDryingProducts, setShowDryingProducts] = useState(false);
   const [showLabProducts, setShowLabProducts] = useState(false);
   const [showSemiProducts, setShowSemiProducts] = useState(false);
+
   const scrollToSection = (sectionId: string) => {
     onBack();
     setTimeout(() => {
@@ -147,16 +150,14 @@ export function ProductsPage({
   };
 
   const handleCategoryClick = (categoryTitle: string) => {
-  if (categoryTitle === "LABORATÓRIO") {
-    setShowLabProducts(true);
-
-  } else if (categoryTitle === "SEMI AUTOMÁTICAS") {
-    setShowSemiProducts(true);
-
-  } else if (categoryTitle === "SECAGEM / CURA") {
-    setShowDryingProducts(true);
-  }
-};
+    if (categoryTitle === "LABORATÓRIO") {
+      setShowLabProducts(true);
+    } else if (categoryTitle === "SEMI AUTOMÁTICAS") {
+      setShowSemiProducts(true);
+    } else if (categoryTitle === "SECAGEM / CURA") {
+      setShowDryingProducts(true);
+    }
+  };
 
   const handleDryingProductClick = (index: number) => {
     switch (index) {
@@ -188,6 +189,119 @@ export function ProductsPage({
         break;
     }
   };
+
+  // Se está mostrando produtos semi automáticos
+  if (showSemiProducts) {
+    return (
+      <div className="min-h-screen bg-white">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="bg-[#0A0A0A] text-white py-6 md:py-8 sticky top-0 z-40 shadow-lg"
+        >
+          <div className="container mx-auto px-4">
+            <Button
+              onClick={() => setShowSemiProducts(false)}
+              variant="ghost"
+              className="text-white hover:bg-white/10 mb-4 -ml-2 touch-manipulation"
+            >
+              <ArrowLeft className="mr-2" size={20} />
+              Voltar para Categorias
+            </Button>
+            <h1 className="text-3xl md:text-5xl font-extrabold mb-2 md:mb-3">
+              Máquinas Semi Automáticas
+            </h1>
+            <p className="text-gray-400 text-base md:text-lg max-w-3xl">
+              Escolha o modelo ideal para sua produção
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Products Grid */}
+        <section className="py-12 md:py-16">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
+              {semiProducts.map((product, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                  onClick={() => {
+                    if (index === 0) {
+                      onNavigateToProduct?.("/impressora-serigrafica-semi-automatica-phenixtron");
+                    }
+                  }}
+                  className="group relative overflow-hidden rounded-2xl shadow-xl bg-white cursor-pointer"
+                >
+                  {/* Image */}
+                  <div className="h-64 md:h-80 overflow-hidden bg-gray-50">
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110 p-4"
+                    />
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6 md:p-8 bg-gradient-to-t from-white to-gray-50">
+                    <h3 className="text-xl md:text-2xl font-extrabold mb-3 text-[#0A0A0A] leading-tight">
+                      {product.title}
+                    </h3>
+                    <p className="text-[#374151] mb-4 leading-relaxed">
+                      {product.description}
+                    </p>
+                    <span className="inline-flex items-center gap-2 text-[#FF5722] font-bold">
+                      Ver Detalhes
+                      <motion.span
+                        animate={{ x: [0, 5, 0] }}
+                        transition={{
+                          duration: 1.5,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                        }}
+                      >
+                        →
+                      </motion.span>
+                    </span>
+                  </div>
+
+                  {/* Orange Border on Hover */}
+                  <div className="absolute inset-0 border-4 border-transparent group-hover:border-[#FF5722] transition-colors duration-300 rounded-2xl pointer-events-none"></div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="py-16 md:py-20 bg-gray-50"
+        >
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-2xl md:text-4xl font-extrabold mb-3 md:mb-4 text-[#0A0A0A]">
+              Dúvidas Sobre Qual Equipamento Escolher?
+            </h2>
+            <p className="text-[#374151] text-base md:text-lg mb-6 md:mb-8 max-w-2xl mx-auto">
+              Nossa equipe técnica pode ajudar você a escolher o modelo ideal para sua produção
+            </p>
+            <Button
+              onClick={() => window.open(getWhatsAppUrl(), "_blank")}
+              className="bg-[#FF5722] hover:bg-[#E64A19] text-white rounded px-8 py-6 text-base md:text-lg font-bold shadow-lg"
+            >
+              Falar com Especialista
+            </Button>
+          </div>
+        </motion.section>
+      </div>
+    );
+  }
 
   // Se está mostrando produtos de secagem/cura
   if (showDryingProducts) {
