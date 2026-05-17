@@ -20,7 +20,7 @@ import image1 from "figma:asset/187e68678401201a04046744339d3c0e217c24e8.png";
 import image2 from "figma:asset/fe9de625c251dd03ceaba91f42a80e7e9d4afc4e.png";
 import { getWhatsAppUrl } from "../contactInfo";
 
-interface PhenixtronPageProps {
+interface PRATIKAPageProps {
   onBack: () => void;
 }
 
@@ -28,40 +28,40 @@ const faqItems = [
   {
     question: "O que é uma impressora serigráfica semiautomática?",
     answer:
-      "Uma impressora serigráfica semiautomática é um equipamento que automatiza o processo de impressão serigráfica, mantendo algumas operações manuais. A PHENIXTRON utiliza sistema pneumático para realizar o movimento de impressão com precisão, enquanto o operador controla o posicionamento e alimentação do material.",
+      "Uma impressora serigráfica semiautomática é um equipamento que automatiza o processo de impressão serigráfica, mantendo algumas operações manuais. A PRATIKA utiliza sistema pneumático para realizar o movimento de impressão com precisão, enquanto o operador controla o posicionamento e alimentação do material.",
   },
   {
     question: "Para que serve uma máquina de serigrafia industrial?",
     answer:
-      "A PHENIXTRON é ideal para produção industrial de adesivos, rótulos, materiais promocionais, comunicação visual e impressões técnicas. Ela oferece alta produtividade, qualidade consistente e repetibilidade no processo de impressão serigráfica em diversos substratos planos como papel, plástico e outros materiais.",
+      "A PRATIKA é ideal para produção industrial de adesivos, rótulos, materiais promocionais, comunicação visual e impressões técnicas. Ela oferece alta produtividade, qualidade consistente e repetibilidade no processo de impressão serigráfica em diversos substratos planos como papel, plástico e outros materiais.",
   },
   {
     question: "Qual a diferença entre serigrafia manual e semiautomática?",
     answer:
-      "Na serigrafia manual, todo o processo de impressão é feito manualmente pelo operador. Na semiautomática PHENIXTRON, o movimento do carro impressor é automatizado por sistema pneumático, garantindo maior precisão, velocidade e padronização. Isso resulta em maior produtividade e qualidade superior, especialmente em produções em série.",
+      "Na serigrafia manual, todo o processo de impressão é feito manualmente pelo operador. Na semiautomática PRATIKA, o movimento do carro impressor é automatizado por sistema pneumático, garantindo maior precisão, velocidade e padronização. Isso resulta em maior produtividade e qualidade superior, especialmente em produções em série.",
   },
   {
-    question: "Que materiais podem ser impressos na PHENIXTRON?",
+    question: "Que materiais podem ser impressos na PRATIKA?",
     answer:
-      "A PHENIXTRON pode imprimir em diversos substratos planos, incluindo: papel, plásticos (PVC, poliéster), adesivos, vinil, acrílico, papelão e outros materiais compatíveis com serigrafia. O sistema de mesa a vácuo mantém o substrato fixo durante a impressão, garantindo precisão em diferentes tipos de materiais.",
+      "A PRATIKA pode imprimir em diversos substratos planos, incluindo: papel, plásticos (PVC, poliéster), adesivos, vinil, acrílico, papelão e outros materiais compatíveis com serigrafia. O sistema de mesa a vácuo mantém o substrato fixo durante a impressão, garantindo precisão em diferentes tipos de materiais.",
   },
   {
-    question: "Como funciona o sistema pneumático da PHENIXTRON?",
+    question: "Como funciona o sistema pneumático da PRATIKA?",
     answer:
-      "O sistema pneumático da PHENIXTRON utiliza ar comprimido a 7 bar (100 PSI) para acionar o carro impressor com movimentos precisos e suaves. Isso reduz vibrações, aumenta a vida útil dos componentes e proporciona impressões de alta qualidade com repetibilidade constante.",
+      "O sistema pneumático da PRATIKA utiliza ar comprimido a 7 bar (100 PSI) para acionar o carro impressor com movimentos precisos e suaves. Isso reduz vibrações, aumenta a vida útil dos componentes e proporciona impressões de alta qualidade com repetibilidade constante.",
   },
   {
     question: "Quantas pessoas são necessárias para operar a máquina?",
     answer:
-      "A PHENIXTRON pode ser operada por 1 pessoa, mas para máxima produtividade, recomenda-se 2 operadores: um responsável pelo registro e posicionamento do material, e outro pela retirada das peças impressas. Essa configuração otimiza o ciclo de produção.",
+      "A PRATIKA pode ser operada por 1 pessoa, mas para máxima produtividade, recomenda-se 2 operadores: um responsável pelo registro e posicionamento do material, e outro pela retirada das peças impressas. Essa configuração otimiza o ciclo de produção.",
   },
   {
-    question: "A PHENIXTRON possui sistemas de segurança?",
+    question: "A PRATIKA possui sistemas de segurança?",
     answer:
       "Sim! A máquina é equipada com barra de segurança salva-mãos que interrompe automaticamente o movimento do cabeçote em caso de contato, atendendo às normas internacionais de segurança para equipamentos industriais e protegendo o operador durante a operação.",
   },
   {
-    question: "Qual a produtividade da PHENIXTRON?",
+    question: "Qual a produtividade da PRATIKA?",
     answer:
       "A produtividade varia conforme o tipo de trabalho, número de operadores e configuração. Com 2 operadores, a máquina pode atingir altos níveis de produtividade mantendo qualidade constante. O tempo de setup reduzido e os ajustes rápidos contribuem para otimizar a produção.",
   },
@@ -121,7 +121,7 @@ const technicalSpecs = [
   { label: "Ciclos de impressão", value: "Matriz coberta ou descoberta" },
 ];
 
-export function PhenixtronPage({ onBack }: PhenixtronPageProps) {
+export function PratikaPage({ onBack }: PRATIKAPageProps) {
   const [selectedImage, setSelectedImage] = useState(0);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
@@ -137,7 +137,7 @@ export function PhenixtronPage({ onBack }: PhenixtronPageProps) {
   const handleQuoteRequest = () => {
     window.open(
       getWhatsAppUrl(
-        "Olá! Gostaria de solicitar um orçamento para a impressora PHENIXTRON.",
+        "Olá! Gostaria de solicitar um orçamento para a impressora PRATIKA.",
       ),
       "_blank",
     );
@@ -181,7 +181,7 @@ export function PhenixtronPage({ onBack }: PhenixtronPageProps) {
                 >
                   <img
                     src={images[selectedImage]}
-                    alt={`PHENIXTRON - Impressora Serigráfica Semiautomática ${
+                    alt={`PRATIKA - Impressora Serigráfica Semiautomática ${
                       selectedImage + 1
                     }`}
                     className="w-full h-full object-contain p-8"
@@ -226,7 +226,7 @@ export function PhenixtronPage({ onBack }: PhenixtronPageProps) {
                   </div>
 
                   <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-[#0A0A0A] leading-tight">
-                    PHENIXTRON Impressora Serigráfica Semiautomática Industrial
+                    PRATIKA Impressora Serigráfica Semiautomática Industrial
                   </h1>
 
                   <div className="flex items-center gap-2 mb-6">
@@ -243,7 +243,7 @@ export function PhenixtronPage({ onBack }: PhenixtronPageProps) {
                   </div>
 
                   <p className="text-lg text-[#374151] leading-relaxed mb-6">
-                    A PHENIXTRON é uma impressora serigráfica semiautomática
+                    A PRATIKA é uma impressora serigráfica semiautomática
                     industrial desenvolvida para empresas que buscam{" "}
                     <strong>alta produtividade, precisão e padronização</strong>{" "}
                     no processo de impressão serigráfica. Robusta e confiável, a
@@ -306,7 +306,7 @@ export function PhenixtronPage({ onBack }: PhenixtronPageProps) {
               className="text-center mb-16"
             >
               <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-[#0A0A0A]">
-                Por que escolher a PHENIXTRON?
+                Por que escolher a PRATIKA?
               </h2>
               <p className="text-xl text-[#374151] max-w-3xl mx-auto">
                 Equipamento desenvolvido para máxima produtividade e qualidade
@@ -351,7 +351,7 @@ export function PhenixtronPage({ onBack }: PhenixtronPageProps) {
               className="max-w-4xl mx-auto"
             >
               <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-[#0A0A0A] text-center">
-                Como funciona a PHENIXTRON
+                Como funciona a PRATIKA
               </h2>
               <p className="text-xl text-[#374151] mb-12 text-center">
                 Sistema pneumático de alta precisão para serigrafia industrial
@@ -366,7 +366,7 @@ export function PhenixtronPage({ onBack }: PhenixtronPageProps) {
                     Alta precisão na impressão serigráfica
                   </h3>
                   <p className="text-[#374151] leading-relaxed">
-                    A PHENIXTRON foi projetada para oferecer controle completo
+                    A PRATIKA foi projetada para oferecer controle completo
                     sobre o processo de impressão. O operador pode realizar
                     ajustes finos de pressão do rodo, espátula, velocidade de
                     impressão e altura de fora-contato, garantindo qualidade
@@ -385,7 +385,7 @@ export function PhenixtronPage({ onBack }: PhenixtronPageProps) {
                     Sistema pneumático de alta eficiência
                   </h3>
                   <p className="text-[#374151] leading-relaxed">
-                    O funcionamento da PHENIXTRON utiliza um sistema pneumático
+                    O funcionamento da PRATIKA utiliza um sistema pneumático
                     de alta performance, que proporciona movimentos suaves e
                     estáveis durante todo o ciclo de impressão. Isso reduz
                     vibrações e contribui para maior durabilidade dos
@@ -403,7 +403,7 @@ export function PhenixtronPage({ onBack }: PhenixtronPageProps) {
                     Modos de operação flexíveis
                   </h3>
                   <p className="text-[#374151] leading-relaxed mb-4">
-                    A PHENIXTRON oferece dois ciclos de impressão que permitem
+                    A PRATIKA oferece dois ciclos de impressão que permitem
                     adequar o processo ao tipo de trabalho:
                   </p>
                   <div className="space-y-3 ml-6">
@@ -445,7 +445,7 @@ export function PhenixtronPage({ onBack }: PhenixtronPageProps) {
               className="text-center mb-16"
             >
               <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-[#0A0A0A]">
-                Aplicações da PHENIXTRON
+                Aplicações da PRATIKA
               </h2>
               <p className="text-xl text-[#374151] max-w-3xl mx-auto">
                 Máquina de serigrafia industrial versátil para diversas
@@ -527,7 +527,7 @@ export function PhenixtronPage({ onBack }: PhenixtronPageProps) {
                 Ficha Técnica
               </h2>
               <p className="text-xl text-[#374151] mb-12 text-center">
-                Especificações técnicas da impressora serigráfica PHENIXTRON
+                Especificações técnicas da impressora serigráfica PRATIKA
               </p>
 
               <div className="bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-gray-100">
@@ -580,7 +580,7 @@ export function PhenixtronPage({ onBack }: PhenixtronPageProps) {
                 </h2>
                 <p className="text-xl text-[#374151]">
                   Tudo o que você precisa saber sobre a impressora serigráfica
-                  PHENIXTRON
+                  PRATIKA
                 </p>
               </div>
 
@@ -646,11 +646,11 @@ export function PhenixtronPage({ onBack }: PhenixtronPageProps) {
               className="max-w-3xl mx-auto"
             >
               <h2 className="text-4xl md:text-5xl font-extrabold mb-6">
-                Solicite um Orçamento da PHENIXTRON
+                Solicite um Orçamento da PRATIKA
               </h2>
               <p className="text-xl mb-8 opacity-90">
                 Entre em contato com nossos especialistas e descubra como a
-                PHENIXTRON pode aumentar a produtividade da sua empresa
+                PRATIKA pode aumentar a produtividade da sua empresa
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
