@@ -234,6 +234,10 @@ export function ProductsPage({
                     if (index === 0) {
                       onNavigateToProduct?.("/impressora-serigrafica-semi-automatica-phenixtron");
                     }
+
+                    if (index === 1) {
+                      onNavigateToProduct?.("/pratika");
+                    }
                   }}
                   className="group relative overflow-hidden rounded-2xl shadow-xl bg-white cursor-pointer"
                 >
