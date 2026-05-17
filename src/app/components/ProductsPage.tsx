@@ -70,7 +70,23 @@ const labProducts = [
     image: misturadorImg,
   },
 ];
-
+const semiProducts = [
+  {
+    title: "PHENIXTRON",
+    description: "Impressora semi automática para produção industrial",
+    image: copymasterImg,
+  },
+  {
+    title: "PRATIKA",
+    description: "Sistema semi automático para produção contínua",
+    image: mesaExposicaoImg,
+  },
+  {
+    title: "LINHA UV",
+    description: "Linha de impressão UV industrial",
+    image: misturadorImg,
+  },
+];
 const dryingProducts = [
   {
     title: "Estufa Compacta de Secagem",
@@ -119,7 +135,7 @@ export function ProductsPage({
 }: ProductsPageProps) {
   const [showDryingProducts, setShowDryingProducts] = useState(false);
   const [showLabProducts, setShowLabProducts] = useState(false);
-
+  const [showSemiProducts, setShowSemiProducts] = useState(false);
   const scrollToSection = (sectionId: string) => {
     onBack();
     setTimeout(() => {
@@ -131,14 +147,16 @@ export function ProductsPage({
   };
 
   const handleCategoryClick = (categoryTitle: string) => {
-    if (categoryTitle === "LABORATÓRIO") {
-      setShowLabProducts(true);
-    } else if (categoryTitle === "SEMI AUTOMÁTICAS" && onNavigateToProduct) {
-      onNavigateToProduct("/impressora-serigrafica-semi-automatica-phenixtron");
-    } else if (categoryTitle === "SECAGEM / CURA") {
-      setShowDryingProducts(true);
-    }
-  };
+  if (categoryTitle === "LABORATÓRIO") {
+    setShowLabProducts(true);
+
+  } else if (categoryTitle === "SEMI AUTOMÁTICAS") {
+    setShowSemiProducts(true);
+
+  } else if (categoryTitle === "SECAGEM / CURA") {
+    setShowDryingProducts(true);
+  }
+};
 
   const handleDryingProductClick = (index: number) => {
     switch (index) {
@@ -173,6 +191,7 @@ export function ProductsPage({
 
   // Se está mostrando produtos de secagem/cura
   if (showDryingProducts) {
+    
     return (
       <div className="min-h-screen bg-white">
         {/* Header */}
