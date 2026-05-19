@@ -83,34 +83,14 @@ const semiProducts = [
     image: "https://i.postimg.cc/y8YQfCgc/phenixtron-boca-de-jacare-png.png",
   },
   {
-    title: "CURADORA UV",
-    description: "Sistema UV industrial para cura e acabamento",
-    image: "https://i.postimg.cc/cJg1pjtx/curadora-uv-phenix-png.jpg",
-  },
-  {
-    title: "VULCAN PHENIX",
-    description: "Sistema de secagem e cura industrial",
-    image: "https://i.postimg.cc/6qkYcNhb/Gemini-Generated-Image-jb7v02jb7v02jb7v.png",
-  },
-  {
     title: "MESA TÉRMICA",
     description: "Equipamento térmico para processos industriais",
     image: "https://i.postimg.cc/bJVTZZNR/mesa-termica-phenix-png.jpg",
-  },
-  {
-    title: "FLASH CURE",
-    description: "Cura rápida para produção serigráfica",
-    image:  "https://i.postimg.cc/jd4bBT86/flash-cure-phenix-png.jpg",
   },
 ];
 
 const dryingProducts = [
   {
-    title: "Estufa Compacta de Secagem",
-    description: "Equipamento compacto para pequenas e médias produções",
-    image: estufaCompacta,
-  },
-  {
     title: "VULCAN PHENIX",
     description: "Sistema de secagem e cura industrial",
     image: "https://i.postimg.cc/6qkYcNhb/Gemini-Generated-Image-jb7v02jb7v02jb7v.png",
@@ -124,11 +104,6 @@ const dryingProducts = [
     title: "CURADORA UV",
     description: "Sistema UV industrial para cura e acabamento",
     image: "https://i.postimg.cc/cJg1pjtx/curadora-uv-phenix-png.jpg",
-  },
-  {
-    title: "Estufa Túnel",
-    description: "Secagem contínua de alta performance",
-    image: estufaTunel,
   },
 ];
 
