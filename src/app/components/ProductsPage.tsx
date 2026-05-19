@@ -85,7 +85,7 @@ const semiProducts = [
   {
     title: "CURADORA UV",
     description: "Sistema UV industrial para cura e acabamento",
-    image: misturadorImg,
+    image: "https://i.postimg.cc/cJg1pjtx/curadora-uv-phenix-png.jpg,
   },
   {
     title: "VULCAN PHENIX",
