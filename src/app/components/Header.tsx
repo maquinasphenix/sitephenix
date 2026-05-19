@@ -1,6 +1,3 @@
-<div className="bg-[#FF5722] text-white text-center py-2 text-sm md:text-base font-semibold tracking-wide">
-  ⚠️ Site em atualização • Para mais informações entre em contato pelo WhatsApp
-</div>
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "./ui/button";
@@ -31,6 +28,9 @@ export function Header({ onNavigateToProducts }: HeaderProps) {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#0A0A0A] text-white shadow-xl border-b border-gray-800">
+      <div className="bg-[#FF5722] text-white text-center py-2 text-sm md:text-base font-semibold tracking-wide">
+  ⚠️ Site em atualização • Para mais informações entre em contato pelo WhatsApp
+</div>
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Brand Name */}
