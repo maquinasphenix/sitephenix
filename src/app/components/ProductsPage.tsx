@@ -90,7 +90,7 @@ const semiProducts = [
   {
     title: "VULCAN PHENIX",
     description: "Sistema de secagem e cura industrial",
-    image: estufaIndustrial,
+    image: "https://i.postimg.cc/YCJYm9jr/Copia-de-Phenix-Maio-(Post-para-Instagram-(45))-(2).png",
   },
   {
     title: "MESA TÉRMICA",
