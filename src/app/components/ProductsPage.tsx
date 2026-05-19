@@ -83,9 +83,24 @@ const semiProducts = [
     image: mesaExposicaoImg,
   },
   {
-    title: "LINHA UV",
-    description: "Linha de impressão UV industrial",
+    title: "CURADORA UV",
+    description: "Sistema UV industrial para cura e acabamento",
     image: misturadorImg,
+  },
+  {
+    title: "VULCAN PHENIX",
+    description: "Sistema de secagem e cura industrial",
+    image: estufaIndustrial,
+  },
+  {
+    title: "MESA TÉRMICA",
+    description: "Equipamento térmico para processos industriais",
+    image: estufaCompacta,
+  },
+  {
+    title: "FLASH CURE",
+    description: "Cura rápida para produção serigráfica",
+    image: esteiraTransportadora,
   },
 ];
 
@@ -237,6 +252,22 @@ export function ProductsPage({
 
                     if (index === 1) {
                       onNavigateToProduct?.("/pratika");
+                    }
+
+                    if (index === 2) {
+                      onNavigateToProduct?.("/curadora-uv");
+                    }
+
+                    if (index === 3) {
+                      onNavigateToProduct?.("/vulcan-phenix");
+                    }
+
+                    if (index === 4) {
+                      onNavigateToProduct?.("/mesa-termica");
+                    }
+
+                    if (index === 5) {
+                      onNavigateToProduct?.("/flash-cure");
                     }
                   }}
                   className="group relative overflow-hidden rounded-2xl shadow-xl bg-white cursor-pointer"
