@@ -78,9 +78,9 @@ const semiProducts = [
     image: copymasterImg,
   },
   {
-    title: "PRATIKA",
+    title: "IMPRESSORA SERIGRÁFICA SEMI AUTOMÁTICA BOCA DE JACARÉ",
     description: "Sistema semi automático para produção contínua",
-    image: mesaExposicaoImg,
+    image: "https://i.postimg.cc/y8YQfCgc/phenixtron-boca-de-jacare-png.png",
   },
   {
     title: "CURADORA UV",
