@@ -111,9 +111,9 @@ const dryingProducts = [
     image: estufaCompacta,
   },
   {
-    title: "Estufa Industrial",
-    description: "Alta capacidade para produções em grande escala",
-    image: estufaIndustrial,
+    title: "VULCAN PHENIX",
+    description: "Sistema de secagem e cura industrial",
+    image: "https://i.postimg.cc/6qkYcNhb/Gemini-Generated-Image-jb7v02jb7v02jb7v.png",
   },
   {
     title: "FLASH CURE",
@@ -121,9 +121,9 @@ const dryingProducts = [
     image:  "https://i.postimg.cc/jd4bBT86/flash-cure-phenix-png.jpg",
   },
   {
-    title: "Esteira Transportadora",
-    description: "Integração entre processos de produção",
-    image: esteiraTransportadora,
+    title: "CURADORA UV",
+    description: "Sistema UV industrial para cura e acabamento",
+    image: "https://i.postimg.cc/cJg1pjtx/curadora-uv-phenix-png.jpg",
   },
   {
     title: "Estufa Túnel",
