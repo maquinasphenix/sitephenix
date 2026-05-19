@@ -116,6 +116,11 @@ const dryingProducts = [
     image: estufaIndustrial,
   },
   {
+    title: "FLASH CURE",
+    description: "Cura rápida para produção serigráfica",
+    image:  "https://i.postimg.cc/jd4bBT86/flash-cure-phenix-png.jpg",
+  },
+  {
     title: "Esteira Transportadora",
     description: "Integração entre processos de produção",
     image: esteiraTransportadora,
