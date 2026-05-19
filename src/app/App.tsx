@@ -13,6 +13,10 @@ import { SeoHead } from "./components/SeoHead";
 import { SeoCatalog } from "./components/SeoCatalog";
 import { PhenixtronPage } from "./components/PhenixtronPage";
 import { PratikaPage } from "./components/PratikaPage";
+import { CuradoraUVPhenixPage } from "./components/CuradoraUVPhenixPage";
+import { VulcanPhenixPage } from "./components/VulcanPhenixPage";
+import { MesaTermicaPhenixPage } from "./components/MesaTermicaPhenixPage";
+import { FlashCurePage } from "./components/FlashCurePage";
 import { CopymasterPage } from "./components/CopymasterPage";
 import { EstufaCompactaPage } from "./components/EstufaCompactaPage";
 import { EstufaIndustrialPage } from "./components/EstufaIndustrialPage";
@@ -29,6 +33,10 @@ type PageType =
   | "products"
   | "phenixtron"
   | "pratika"
+  | "curadora-uv"
+  | "vulcan-phenix"
+  | "mesa-termica"
+  | "flash-cure"
   | "copymaster"
   | "estufa-compacta"
   | "estufa-industrial"
@@ -57,6 +65,14 @@ export default function App() {
         setCurrentPage("phenixtron");
       } else if (path === "/pratika") {
         setCurrentPage("pratika");
+      } else if (path === "/curadora-uv") {
+        setCurrentPage("curadora-uv");
+      } else if (path === "/vulcan-phenix") {
+        setCurrentPage("vulcan-phenix");
+      } else if (path === "/mesa-termica") {
+        setCurrentPage("mesa-termica");
+      } else if (path === "/flash-cure") {
+        setCurrentPage("flash-cure");
       } else if (
         path === "/mesa-exposicao-uv-serigrafia-copymaster" ||
         path === "/copymaster"
@@ -115,6 +131,26 @@ export default function App() {
     window.history.pushState({}, "", "/pratika");
   };
 
+  const navigateToCuradoraUV = () => {
+    setCurrentPage("curadora-uv");
+    window.history.pushState({}, "", "/curadora-uv");
+  };
+
+  const navigateToVulcanPhenix = () => {
+    setCurrentPage("vulcan-phenix");
+    window.history.pushState({}, "", "/vulcan-phenix");
+  };
+
+  const navigateToMesaTermica = () => {
+    setCurrentPage("mesa-termica");
+    window.history.pushState({}, "", "/mesa-termica");
+  };
+
+  const navigateToFlashCure = () => {
+    setCurrentPage("flash-cure");
+    window.history.pushState({}, "", "/flash-cure");
+  };
+
   const handleNavigateToProduct = (productPath: string) => {
     if (
       productPath === "/impressora-serigrafica-semi-automatica-phenixtron" ||
@@ -126,6 +162,26 @@ export default function App() {
 
     if (productPath === "/pratika") {
       navigateToPratika();
+      return;
+    }
+
+    if (productPath === "/curadora-uv") {
+      navigateToCuradoraUV();
+      return;
+    }
+
+    if (productPath === "/vulcan-phenix") {
+      navigateToVulcanPhenix();
+      return;
+    }
+
+    if (productPath === "/mesa-termica") {
+      navigateToMesaTermica();
+      return;
+    }
+
+    if (productPath === "/flash-cure") {
+      navigateToFlashCure();
       return;
     }
   };
@@ -264,6 +320,46 @@ export default function App() {
       <>
         <SeoHead {...seo} />
         <PratikaPage onBack={navigateToProducts} />
+        <WhatsAppButton />
+      </>
+    );
+  }
+
+  if (currentPage === "curadora-uv") {
+    return (
+      <>
+        <SeoHead {...seo} />
+        <CuradoraUVPhenixPage onBack={navigateToProducts} />
+        <WhatsAppButton />
+      </>
+    );
+  }
+
+  if (currentPage === "vulcan-phenix") {
+    return (
+      <>
+        <SeoHead {...seo} />
+        <VulcanPhenixPage onBack={navigateToProducts} />
+        <WhatsAppButton />
+      </>
+    );
+  }
+
+  if (currentPage === "mesa-termica") {
+    return (
+      <>
+        <SeoHead {...seo} />
+        <MesaTermicaPhenixPage onBack={navigateToProducts} />
+        <WhatsAppButton />
+      </>
+    );
+  }
+
+  if (currentPage === "flash-cure") {
+    return (
+      <>
+        <SeoHead {...seo} />
+        <FlashCurePage onBack={navigateToProducts} />
         <WhatsAppButton />
       </>
     );
