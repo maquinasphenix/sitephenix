@@ -20,7 +20,7 @@ import image1 from "figma:asset/187e68678401201a04046744339d3c0e217c24e8.png";
 import image2 from "figma:asset/fe9de625c251dd03ceaba91f42a80e7e9d4afc4e.png";
 import { getWhatsAppUrl } from "../contactInfo";
 
-interface PRATIKAPageProps {
+interface FlashCurePageProps {
   onBack: () => void;
 }
 
@@ -121,7 +121,7 @@ const technicalSpecs = [
   { label: "Ciclos de impressão", value: "Matriz coberta ou descoberta" },
 ];
 
-export function PratikaPage({ onBack }: PRATIKAPageProps) {
+export function FlashCurePage({ onBack }: FlashCurePageProps) {
   const [selectedImage, setSelectedImage] = useState(0);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
