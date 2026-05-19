@@ -1,3 +1,6 @@
+<div className="bg-[#FF5722] text-white text-center py-2 text-sm md:text-base font-semibold tracking-wide">
+  ⚠️ Site em atualização • Para mais informações entre em contato pelo WhatsApp
+</div>
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "./ui/button";
