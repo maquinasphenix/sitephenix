@@ -16,8 +16,7 @@ import {
   Star,
 } from "lucide-react";
 import { useState } from "react";
-import image1 from "figma:asset/187e68678401201a04046744339d3c0e217c24e8.png";
-import image2 from "figma:asset/fe9de625c251dd03ceaba91f42a80e7e9d4afc4e.png";
+import image1 from "https://i.postimg.cc/cJg1pjtx/curadora-uv-phenix-png.jpg";
 import { getWhatsAppUrl } from "../contactInfo";
 
 interface CuradoraUVPhenixPageProps {
