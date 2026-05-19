@@ -95,12 +95,12 @@ const semiProducts = [
   {
     title: "MESA TÉRMICA",
     description: "Equipamento térmico para processos industriais",
-    image: estufaCompacta,
+    image: "https://i.postimg.cc/bJVTZZNR/mesa-termica-phenix-png.jpg",
   },
   {
     title: "FLASH CURE",
     description: "Cura rápida para produção serigráfica",
-    image: esteiraTransportadora,
+    image:  "https://i.postimg.cc/jd4bBT86/flash-cure-phenix-png.jpg",
   },
 ];
 
