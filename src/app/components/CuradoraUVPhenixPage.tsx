@@ -123,7 +123,9 @@ export function CuradoraUVPhenixPage({ onBack }: CuradoraUVPhenixPageProps) {
   const [selectedImage, setSelectedImage] = useState(0);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
-  const images = [image1, image2];
+  const images = [
+  "https://i.postimg.cc/cJg1pjtx/curadora-uv-phenix-png.jpg"
+];
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
