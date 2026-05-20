@@ -60,18 +60,20 @@ export default function App() {
         setCurrentPage("products");
       } else if (
         path === "/impressora-serigrafica-semi-automatica-phenixtron" ||
+        path === "/impressora-serigrafica-semi-automatica-phenixtron-levantamento-paralelo" ||
+        path === "/impressora-serigrafica-semi-automatica-boca-de-jacare" ||
         path === "/phenixtron"
       ) {
         setCurrentPage("phenixtron");
       } else if (path === "/pratika") {
         setCurrentPage("pratika");
-      } else if (path === "/curadora-uv") {
+      } else if (path === "/curadora-uv" || path === "/curadora-uv-phenix") {
         setCurrentPage("curadora-uv");
-      } else if (path === "/vulcan-phenix") {
+      } else if (path === "/vulcan-phenix" || path === "/vulcamphenix") {
         setCurrentPage("vulcan-phenix");
-      } else if (path === "/mesa-termica") {
+      } else if (path === "/mesa-termica" || path === "/mesa-termica-phenix") {
         setCurrentPage("mesa-termica");
-      } else if (path === "/flash-cure") {
+      } else if (path === "/flash-cure" || path === "/flash-cure-phenix") {
         setCurrentPage("flash-cure");
       } else if (
         path === "/mesa-exposicao-uv-serigrafia-copymaster" ||
@@ -153,8 +155,10 @@ export default function App() {
 
   const handleNavigateToProduct = (productPath: string) => {
     if (
+      productPath === "/phenixtron" ||
       productPath === "/impressora-serigrafica-semi-automatica-phenixtron" ||
-      productPath === "/phenixtron"
+      productPath === "/impressora-serigrafica-semi-automatica-phenixtron-levantamento-paralelo" ||
+      productPath === "/impressora-serigrafica-semi-automatica-boca-de-jacare"
     ) {
       navigateToPhenixtron();
       return;
@@ -165,23 +169,58 @@ export default function App() {
       return;
     }
 
-    if (productPath === "/curadora-uv") {
+    if (productPath === "/curadora-uv" || productPath === "/curadora-uv-phenix") {
       navigateToCuradoraUV();
       return;
     }
 
-    if (productPath === "/vulcan-phenix") {
+    if (productPath === "/vulcan-phenix" || productPath === "/vulcamphenix") {
       navigateToVulcanPhenix();
       return;
     }
 
-    if (productPath === "/mesa-termica") {
+    if (productPath === "/mesa-termica" || productPath === "/mesa-termica-phenix") {
       navigateToMesaTermica();
       return;
     }
 
-    if (productPath === "/flash-cure") {
+    if (productPath === "/flash-cure" || productPath === "/flash-cure-phenix") {
       navigateToFlashCure();
+      return;
+    }
+
+    if (productPath === "/copymaster" || productPath === "/mesa-exposicao-uv-serigrafia-copymaster") {
+      navigateToCopymaster();
+      return;
+    }
+
+    if (productPath === "/estufa-compacta" || productPath === "/estufa-compacta-secagem-serigrafia") {
+      navigateToEstufaCompacta();
+      return;
+    }
+
+    if (productPath === "/estufa-industrial" || productPath === "/estufa-industrial-cura-textil") {
+      navigateToEstufaIndustrial();
+      return;
+    }
+
+    if (productPath === "/esteira" || productPath === "/esteira-transportadora-industrial") {
+      navigateToEsteira();
+      return;
+    }
+
+    if (productPath === "/estufa-tunel" || productPath === "/estufa-tunel-secagem-continua") {
+      navigateToEstufaTunel();
+      return;
+    }
+
+    if (productPath === "/mesa-exposicao" || productPath === "/mesa-exposicao-uv-serigrafia") {
+      navigateToMesaExposicao();
+      return;
+    }
+
+    if (productPath === "/misturador-tintas") {
+      navigateToMisturadorTintas();
       return;
     }
   };
