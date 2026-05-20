@@ -1,3 +1,4 @@
+import { MaintenancePage } from "./components/MaintenancePage";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { ProductLines } from "./components/ProductLines";
@@ -49,6 +50,8 @@ type PageType =
 export default function App() {
   const [currentPage, setCurrentPage] = useState<PageType>("home");
   const seo = getSeoData(currentPage);
+  return <MaintenancePage />;
+
 
   useEffect(() => {
     const handlePopState = () => {
