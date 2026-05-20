@@ -2,73 +2,92 @@ import { Factory, Cpu, Hand, Flame, Shirt, Wrench, ArrowLeft } from "lucide-reac
 import { motion } from "motion/react";
 import { Button } from "./ui/button";
 import { useState } from "react";
-import estufaCompacta from "figma:asset/c8b8cc5616caefc6f994ac29f6a187e6dfea6a94.png";
-import estufaIndustrial from "figma:asset/18135b82e31a86e596cb05211800c9201f3ab850.png";
-import esteiraTransportadora from "figma:asset/f167f5cb0d1405a53a50165dbeb1c0e99d5267ee.png";
-import estufaTunel from "figma:asset/3dfe3bba6d6e2e0cca6fe29cc7d83e3bfd433437.png";
-import copymasterImg from "figma:asset/8844910539f927b31804c8e3cda008ffa903f5c8.png";
-import mesaExposicaoImg from "figma:asset/5d6a95de592883158147a5b48ccc31f3c3522d76.png";
-import misturadorImg from "figma:asset/7df05c055d23ea38d257816619777858d8c0e193.png";
 import { getWhatsAppUrl } from "../contactInfo";
 
 const categories = [
   {
     title: "LABORATÓRIO",
     icon: Factory,
-    description: "Equipamentos para testes e desenvolvimento",
-    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsYWJvcmF0b3J5JTIwZXF1aXBtZW50JTIwaW5kdXN0cmlhbHxlbnwxfHx8fDE3NzAzMDYzMjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    description: "Equipamentos para gravação, preparação, lavagem e apoio técnico",
+    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
     hasProducts: true,
   },
   {
     title: "SEMI AUTOMÁTICAS",
     icon: Cpu,
     description: "Máquinas com automação parcial para maior produtividade",
-    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzZW1pJTIwYXV0b21hdGljJTIwbWFjaGluZXJ5fGVufDF8fHx8MTc3MDMwNjMyMXww&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
     hasProducts: true,
   },
   {
     title: "MANUAIS",
     icon: Hand,
     description: "Máquinas operadas manualmente para controle total",
-    image: "https://images.unsplash.com/photo-1581508512961-0e3b9524db40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYW51YWwlMjBzY3JlZW4lMjBwcmludGluZyUyMHByZXNzfGVufDF8fHx8MTc3MDMwNjMyMXww&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "https://images.unsplash.com/photo-1581508512961-0e3b9524db40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
     hasProducts: true,
   },
   {
     title: "SECAGEM / CURA",
     icon: Flame,
-    description: "Equipamentos para secagem e cura de tintas",
-    image: "https://images.unsplash.com/photo-1597221829180-416a158a205b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbmR1c3RyaWFsJTIwY3VyaW5nJTIwb3ZlbnxlbnwxfHx8fDE3NzAzMDYzMjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    description: "Equipamentos para secagem, cura e acabamento",
+    image: "https://images.unsplash.com/photo-1597221829180-416a158a205b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
     hasProducts: true,
   },
   {
     title: "TÊXTIL",
     icon: Shirt,
     description: "Soluções especializadas para impressão têxtil",
-    image: "https://images.unsplash.com/photo-1558769132-cb1aea1f9eb1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZXh0aWxlJTIwcHJpbnRpbmclMjBpbmR1c3RyeXxlbnwxfHx8fDE3NzAzMDYzMjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "https://images.unsplash.com/photo-1558769132-cb1aea1f9eb1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    hasProducts: true,
   },
   {
     title: "GARRAS / ACESSÓRIOS",
     icon: Wrench,
     description: "Garras, acessórios e ferramentas complementares",
-    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbmR1c3RyaWFsJTIwdG9vbHMlMjBhY2Nlc3Nvcmllc3xlbnwxfHx8fDE3NzAzMDYzMjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    hasProducts: true,
   },
 ];
 
 const labProducts = [
   {
-    title: "Copymaster - Mesa UV Digital",
-    description: "Sistema avançado com controle digital e vácuo integrado",
-    image: copymasterImg,
+    title: "PRENSA DE GRAVAÇÃO COM TAMPO DE ESPUMA E FONTE HL 1000 PHENIX",
+    description: "Equipamento para gravação de matrizes com tampo de espuma e fonte HL 1000",
+    image: "https://i.postimg.cc/VspjCQ12/prensa-de-gravacao-com-tampo-de-espuma-e-fonte-hl-1000-phenix-png.jpg",
+    route: "/prensa-de-gravacao-com-tampo-de-espuma-e-fonte-hl-1000-phenix",
   },
   {
-    title: "Mesa de Exposição UV",
-    description: "Equipamento profissional para gravação de matrizes",
-    image: mesaExposicaoImg,
+    title: "GRAVADORA COM ESTUFA PHENIX",
+    description: "Equipamento para gravação e secagem de matrizes serigráficas",
+    image: "https://i.postimg.cc/QNHPpTKG/gravadora-com-estufa-phenix-png.jpg",
+    route: "/gravadora-com-estufa-phenix",
   },
   {
-    title: "Misturador de Tintas",
-    description: "Homogeneização perfeita de cores e aditivos",
-    image: misturadorImg,
+    title: "TANQUINHO DE LAVAR QUADROS PHENIX",
+    description: "Equipamento auxiliar para lavagem e recuperação de quadros serigráficos",
+    image: "https://i.postimg.cc/650tPZz6/tanquinho-de-lavar-quadros-phenix-png.jpg",
+    route: "/tanquinho-de-lavar-quadros-phenix",
+  },
+  {
+    title: "EMULSIONADOR PHENIX",
+    description: "Acessório para aplicação uniforme de emulsão em telas serigráficas",
+    image: "https://i.postimg.cc/zXkcNS9C/emulsionador-phenix-png.jpg",
+    route: "/emulsionador-phenix",
+  },
+];
+
+const semiProducts = [
+  {
+    title: "PHENIXTRON LEVANTAMENTO PARALELO",
+    description: "Impressora semi automática para produção industrial",
+    image: "https://i.postimg.cc/VLBGzkPS/phenixtron-levantamento-paralelo-png.jpg",
+    route: "/impressora-serigrafica-semi-automatica-phenixtron",
+  },
+  {
+    title: "IMPRESSORA SERIGRÁFICA SEMI AUTOMÁTICA BOCA DE JACARÉ",
+    description: "Sistema semi automático para produção contínua",
+    image: "https://i.postimg.cc/y8YQfCgc/phenixtron-boca-de-jacare-png.png",
+    route: "/impressora-serigrafica-semi-automatica-boca-de-jacare",
   },
 ];
 
@@ -123,27 +142,6 @@ const manualProducts = [
   },
 ];
 
-const semiProducts = [
-  {
-    title: "PHENIXTRON LEVANTAMENTO PARALELO",
-    description: "Impressora semi automática para produção industrial",
-    image: "https://i.postimg.cc/VLBGzkPS/phenixtron-levantamento-paralelo-png.jpg",
-    route: "/impressora-serigrafica-semi-automatica-phenixtron",
-  },
-  {
-    title: "IMPRESSORA SERIGRÁFICA SEMI AUTOMÁTICA BOCA DE JACARÉ",
-    description: "Sistema semi automático para produção contínua",
-    image: "https://i.postimg.cc/y8YQfCgc/phenixtron-boca-de-jacare-png.png",
-    route: "/impressora-serigrafica-semi-automatica-boca-de-jacare",
-  },
-  {
-    title: "MESA TÉRMICA PHENIX",
-    description: "Equipamento térmico para processos industriais",
-    image: "https://i.postimg.cc/bJVTZZNR/mesa-termica-phenix-png.jpg",
-    route: "/mesa-termica-phenix",
-  },
-];
-
 const dryingProducts = [
   {
     title: "VULCAMPHENIX",
@@ -163,6 +161,90 @@ const dryingProducts = [
     image: "https://i.postimg.cc/cJg1pjtx/curadora-uv-phenix-png.jpg",
     route: "/curadora-uv-phenix",
   },
+  {
+    title: "FLASH CURE MANUAL PHENIX",
+    description: "Equipamento auxiliar para cura intermediária em serigrafia têxtil",
+    image: "https://i.postimg.cc/7Z98ByHC/flash-cure-manual-phenix-png.jpg",
+    route: "/flash-cure-manual-phenix",
+  },
+  {
+    title: "ESTUFA DE GAVETAS PARA PLASTISOL PHENIX",
+    description: "Estufa de gavetas para cura e secagem de plastisol",
+    image: "https://i.postimg.cc/XNR2dD0H/estufa-de-gavetas-para-plastisol-phenix-png.jpg",
+    route: "/estufa-de-gavetas-para-plastisol-phenix",
+  },
+  {
+    title: "ESTUFA DE SECAGEM DE TELAS PHENIX",
+    description: "Estufa para secagem controlada de telas e matrizes serigráficas",
+    image: "https://i.postimg.cc/59Cg4qFr/estufa-de-secagem-de-telas-phenix-png.jpg",
+    route: "/estufa-de-secagem-de-telas-phenix",
+  },
+  {
+    title: "SECADOR METÁLICO STO PHENIX",
+    description: "Secador metálico para organização e secagem de materiais impressos",
+    image: "https://i.postimg.cc/VkqLmTYN/secador-metalico-sto-phenix-png.jpg",
+    route: "/secador-metalico-sto-phenix",
+  },
+];
+
+const textileProducts = [
+  {
+    title: "IMPRESSORA TÊXTIL CARROSSEL PHENIX",
+    description: "Equipamento para impressão têxtil em escala com sistema carrossel",
+    image: "https://i.postimg.cc/MGd4YKpJ/impressora-textil-carrossel-phenix-png.jpg",
+    route: "/impressora-textil-carrossel-phenix",
+  },
+  {
+    title: "FLASH CURE MANUAL PHENIX",
+    description: "Equipamento auxiliar para cura intermediária em serigrafia têxtil",
+    image: "https://i.postimg.cc/7Z98ByHC/flash-cure-manual-phenix-png.jpg",
+    route: "/flash-cure-manual-phenix",
+  },
+  {
+    title: "ESTUFA DE GAVETAS PARA PLASTISOL PHENIX",
+    description: "Estufa de gavetas para cura e secagem de plastisol",
+    image: "https://i.postimg.cc/XNR2dD0H/estufa-de-gavetas-para-plastisol-phenix-png.jpg",
+    route: "/estufa-de-gavetas-para-plastisol-phenix",
+  },
+];
+
+const accessoryProducts = [
+  {
+    title: "GARRA MATRIX PHENIX",
+    description: "Garra para fixação precisa de matrizes serigráficas",
+    image: "https://i.postimg.cc/qMG8qmB1/garra-matrix-phenix-png.jpg",
+    route: "/garra-matrix-phenix",
+  },
+  {
+    title: "TAMPINHO COM GARRA 30x40 PHENIX",
+    description: "Tampinho com garra para trabalhos serigráficos em formato 30x40",
+    image: "https://i.postimg.cc/fT59DJ5g/tampinho-com-garra-30x40-phenix-png.jpg",
+    route: "/tampinho-com-garra-30x40-phenix",
+  },
+  {
+    title: "GARRA PHENIX COM PINÇA",
+    description: "Garra com pinça para fixação segura durante a impressão",
+    image: "https://i.postimg.cc/MKXWfHqR/garra-phenix-com-pinca-png.jpg",
+    route: "/garra-phenix-com-pinca",
+  },
+  {
+    title: "GARRA PHENIX",
+    description: "Garra para fixação, estabilidade e precisão em processos serigráficos",
+    image: "https://i.postimg.cc/NMN3Q89c/garra-phenix-png.jpg",
+    route: "/garra-phenix",
+  },
+  {
+    title: "GARRA ZERO PHENIX",
+    description: "Garra para alinhamento, estabilidade e repetibilidade no registro",
+    image: "https://i.postimg.cc/HWwS09sy/garra-zero-phenix-png.jpg",
+    route: "/garra-zero-phenix",
+  },
+  {
+    title: "CARRINHO ALIMENTADOR PHENIX",
+    description: "Carrinho auxiliar para organização e abastecimento da linha de produção",
+    image: "https://i.postimg.cc/wTWQFWCZ/carrinho-alimentador-phenix-png.jpg",
+    route: "/carrinho-alimentador-phenix",
+  },
 ];
 
 interface ProductsPageProps {
@@ -177,21 +259,43 @@ interface ProductsPageProps {
   onNavigateToMisturadorTintas?: () => void;
 }
 
-export function ProductsPage({ 
-  onBack, 
-  onNavigateToProduct, 
-  onNavigateToCopymaster,
-  onNavigateToEstufaCompacta,
-  onNavigateToEstufaIndustrial,
-  onNavigateToEsteira,
-  onNavigateToEstufaTunel,
-  onNavigateToMesaExposicao,
-  onNavigateToMisturadorTintas
-}: ProductsPageProps) {
-  const [showDryingProducts, setShowDryingProducts] = useState(false);
-  const [showLabProducts, setShowLabProducts] = useState(false);
-  const [showSemiProducts, setShowSemiProducts] = useState(false);
-  const [showManualProducts, setShowManualProducts] = useState(false);
+const productSections = {
+  "LABORATÓRIO": {
+    title: "Equipamentos de Laboratório",
+    subtitle: "Equipamentos para gravação, preparação, lavagem e apoio técnico",
+    products: labProducts,
+  },
+  "SEMI AUTOMÁTICAS": {
+    title: "Máquinas Semi Automáticas",
+    subtitle: "Escolha o modelo ideal para sua produção",
+    products: semiProducts,
+  },
+  MANUAIS: {
+    title: "Máquinas Manuais",
+    subtitle: "Equipamentos manuais para processos serigráficos com controle, precisão e produtividade",
+    products: manualProducts,
+  },
+  "SECAGEM / CURA": {
+    title: "Equipamentos de Secagem e Cura",
+    subtitle: "Linha completa de equipamentos para secagem, cura e acabamento",
+    products: dryingProducts,
+  },
+  TÊXTIL: {
+    title: "Equipamentos Têxteis",
+    subtitle: "Soluções especializadas para impressão têxtil profissional",
+    products: textileProducts,
+  },
+  "GARRAS / ACESSÓRIOS": {
+    title: "Garras e Acessórios",
+    subtitle: "Garras, acessórios e ferramentas complementares para processos serigráficos",
+    products: accessoryProducts,
+  },
+};
+
+type CategoryTitle = keyof typeof productSections;
+
+export function ProductsPage({ onBack, onNavigateToProduct }: ProductsPageProps) {
+  const [selectedCategory, setSelectedCategory] = useState<CategoryTitle | null>(null);
 
   const scrollToSection = (sectionId: string) => {
     onBack();
@@ -203,54 +307,11 @@ export function ProductsPage({
     }, 100);
   };
 
-  const handleCategoryClick = (categoryTitle: string) => {
-    if (categoryTitle === "LABORATÓRIO") {
-      setShowLabProducts(true);
-    } else if (categoryTitle === "SEMI AUTOMÁTICAS") {
-      setShowSemiProducts(true);
-    } else if (categoryTitle === "MANUAIS") {
-      setShowManualProducts(true);
-    } else if (categoryTitle === "SECAGEM / CURA") {
-      setShowDryingProducts(true);
-    }
-  };
+  if (selectedCategory) {
+    const section = productSections[selectedCategory];
 
-  const handleDryingProductClick = (index: number) => {
-    switch (index) {
-      case 0:
-        onNavigateToEstufaCompacta?.();
-        break;
-      case 1:
-        onNavigateToEstufaIndustrial?.();
-        break;
-      case 2:
-        onNavigateToEsteira?.();
-        break;
-      case 3:
-        onNavigateToEstufaTunel?.();
-        break;
-    }
-  };
-
-  const handleLabProductClick = (index: number) => {
-    switch (index) {
-      case 0:
-        onNavigateToCopymaster?.();
-        break;
-      case 1:
-        onNavigateToMesaExposicao?.();
-        break;
-      case 2:
-        onNavigateToMisturadorTintas?.();
-        break;
-    }
-  };
-
-  // Se está mostrando produtos manuais
-  if (showManualProducts) {
     return (
       <div className="min-h-screen bg-white">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -259,7 +320,7 @@ export function ProductsPage({
         >
           <div className="container mx-auto px-4">
             <Button
-              onClick={() => setShowManualProducts(false)}
+              onClick={() => setSelectedCategory(null)}
               variant="ghost"
               className="text-white hover:bg-white/10 mb-4 -ml-2 touch-manipulation"
             >
@@ -267,29 +328,27 @@ export function ProductsPage({
               Voltar para Categorias
             </Button>
             <h1 className="text-3xl md:text-5xl font-extrabold mb-2 md:mb-3">
-              Máquinas Manuais
+              {section.title}
             </h1>
             <p className="text-gray-400 text-base md:text-lg max-w-3xl">
-              Equipamentos manuais para processos serigráficos com controle, precisão e produtividade
+              {section.subtitle}
             </p>
           </div>
         </motion.div>
 
-        {/* Products Grid */}
         <section className="py-12 md:py-16">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
-              {manualProducts.map((product, index) => (
+              {section.products.map((product, index) => (
                 <motion.div
-                  key={index}
+                  key={`${selectedCategory}-${product.route}`}
                   initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.5, delay: index * 0.08 }}
                   whileHover={{ y: -8, transition: { duration: 0.3 } }}
                   onClick={() => onNavigateToProduct?.(product.route)}
                   className="group relative overflow-hidden rounded-2xl shadow-xl bg-white cursor-pointer"
                 >
-                  {/* Image */}
                   <div className="h-64 md:h-80 overflow-hidden bg-gray-50">
                     <img
                       src={product.image}
@@ -298,7 +357,6 @@ export function ProductsPage({
                     />
                   </div>
 
-                  {/* Content */}
                   <div className="p-6 md:p-8 bg-gradient-to-t from-white to-gray-50">
                     <h3 className="text-xl md:text-2xl font-extrabold mb-3 text-[#0A0A0A] leading-tight">
                       {product.title}
@@ -321,7 +379,6 @@ export function ProductsPage({
                     </span>
                   </div>
 
-                  {/* Orange Border on Hover */}
                   <div className="absolute inset-0 border-4 border-transparent group-hover:border-[#FF5722] transition-colors duration-300 rounded-2xl pointer-events-none"></div>
                 </motion.div>
               ))}
@@ -329,7 +386,6 @@ export function ProductsPage({
           </div>
         </section>
 
-        {/* CTA Section */}
         <motion.section
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -355,338 +411,8 @@ export function ProductsPage({
     );
   }
 
-  // Se está mostrando produtos semi automáticos
-  if (showSemiProducts) {
-    return (
-      <div className="min-h-screen bg-white">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="bg-[#0A0A0A] text-white py-6 md:py-8 sticky top-0 z-40 shadow-lg"
-        >
-          <div className="container mx-auto px-4">
-            <Button
-              onClick={() => setShowSemiProducts(false)}
-              variant="ghost"
-              className="text-white hover:bg-white/10 mb-4 -ml-2 touch-manipulation"
-            >
-              <ArrowLeft className="mr-2" size={20} />
-              Voltar para Categorias
-            </Button>
-            <h1 className="text-3xl md:text-5xl font-extrabold mb-2 md:mb-3">
-              Máquinas Semi Automáticas
-            </h1>
-            <p className="text-gray-400 text-base md:text-lg max-w-3xl">
-              Escolha o modelo ideal para sua produção
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Products Grid */}
-        <section className="py-12 md:py-16">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
-              {semiProducts.map((product, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                  onClick={() => onNavigateToProduct?.(product.route)}
-                  className="group relative overflow-hidden rounded-2xl shadow-xl bg-white cursor-pointer"
-                >
-                  {/* Image */}
-                  <div className="h-64 md:h-80 overflow-hidden bg-gray-50">
-                    <img
-                      src={product.image}
-                      alt={product.title}
-                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110 p-4"
-                    />
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6 md:p-8 bg-gradient-to-t from-white to-gray-50">
-                    <h3 className="text-xl md:text-2xl font-extrabold mb-3 text-[#0A0A0A] leading-tight">
-                      {product.title}
-                    </h3>
-                    <p className="text-[#374151] mb-4 leading-relaxed">
-                      {product.description}
-                    </p>
-                    <span className="inline-flex items-center gap-2 text-[#FF5722] font-bold">
-                      Ver Detalhes
-                      <motion.span
-                        animate={{ x: [0, 5, 0] }}
-                        transition={{
-                          duration: 1.5,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                        }}
-                      >
-                        →
-                      </motion.span>
-                    </span>
-                  </div>
-
-                  {/* Orange Border on Hover */}
-                  <div className="absolute inset-0 border-4 border-transparent group-hover:border-[#FF5722] transition-colors duration-300 rounded-2xl pointer-events-none"></div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="py-16 md:py-20 bg-gray-50"
-        >
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-2xl md:text-4xl font-extrabold mb-3 md:mb-4 text-[#0A0A0A]">
-              Dúvidas Sobre Qual Equipamento Escolher?
-            </h2>
-            <p className="text-[#374151] text-base md:text-lg mb-6 md:mb-8 max-w-2xl mx-auto">
-              Nossa equipe técnica pode ajudar você a escolher o modelo ideal para sua produção
-            </p>
-            <Button
-              onClick={() => window.open(getWhatsAppUrl(), "_blank")}
-              className="bg-[#FF5722] hover:bg-[#E64A19] text-white rounded px-8 py-6 text-base md:text-lg font-bold shadow-lg"
-            >
-              Falar com Especialista
-            </Button>
-          </div>
-        </motion.section>
-      </div>
-    );
-  }
-
-  // Se está mostrando produtos de secagem/cura
-  if (showDryingProducts) {
-    
-    return (
-      <div className="min-h-screen bg-white">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="bg-[#0A0A0A] text-white py-6 md:py-8 sticky top-0 z-40 shadow-lg"
-        >
-          <div className="container mx-auto px-4">
-            <Button
-              onClick={() => setShowDryingProducts(false)}
-              variant="ghost"
-              className="text-white hover:bg-white/10 mb-4 -ml-2 touch-manipulation"
-            >
-              <ArrowLeft className="mr-2" size={20} />
-              Voltar para Categorias
-            </Button>
-            <h1 className="text-3xl md:text-5xl font-extrabold mb-2 md:mb-3">
-              Equipamentos de Secagem e Cura
-            </h1>
-            <p className="text-gray-400 text-base md:text-lg max-w-3xl">
-              Linha completa de estufas e sistemas de secagem para serigrafia e estamparia têxtil
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Products Grid */}
-        <section className="py-12 md:py-16">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
-              {dryingProducts.map((product, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                  onClick={() => onNavigateToProduct?.(product.route)}
-                  className="group relative overflow-hidden rounded-2xl shadow-xl bg-white cursor-pointer"
-                >
-                  {/* Image */}
-                  <div className="h-64 md:h-80 overflow-hidden bg-gray-50">
-                    <img
-                      src={product.image}
-                      alt={product.title}
-                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110 p-4"
-                    />
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6 md:p-8 bg-gradient-to-t from-white to-gray-50">
-                    <h3 className="text-xl md:text-2xl font-extrabold mb-3 text-[#0A0A0A] leading-tight">
-                      {product.title}
-                    </h3>
-                    <p className="text-[#374151] mb-4 leading-relaxed">
-                      {product.description}
-                    </p>
-                    <span className="inline-flex items-center gap-2 text-[#FF5722] font-bold">
-                      Ver Detalhes
-                      <motion.span
-                        animate={{ x: [0, 5, 0] }}
-                        transition={{
-                          duration: 1.5,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                        }}
-                      >
-                        →
-                      </motion.span>
-                    </span>
-                  </div>
-
-                  {/* Orange Border on Hover */}
-                  <div className="absolute inset-0 border-4 border-transparent group-hover:border-[#FF5722] transition-colors duration-300 rounded-2xl pointer-events-none"></div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="py-16 md:py-20 bg-gray-50"
-        >
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-2xl md:text-4xl font-extrabold mb-3 md:mb-4 text-[#0A0A0A]">
-              Dúvidas Sobre Qual Equipamento Escolher?
-            </h2>
-            <p className="text-[#374151] text-base md:text-lg mb-6 md:mb-8 max-w-2xl mx-auto">
-              Nossa equipe técnica pode ajudar você a escolher o modelo ideal para sua produção
-            </p>
-            <Button
-              onClick={() => window.open(getWhatsAppUrl(), "_blank")}
-              className="bg-[#FF5722] hover:bg-[#E64A19] text-white rounded px-8 py-6 text-base md:text-lg font-bold shadow-lg"
-            >
-              Falar com Especialista
-            </Button>
-          </div>
-        </motion.section>
-      </div>
-    );
-  }
-
-  // Se está mostrando produtos de laboratório
-  if (showLabProducts) {
-    return (
-      <div className="min-h-screen bg-white">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="bg-[#0A0A0A] text-white py-6 md:py-8 sticky top-0 z-40 shadow-lg"
-        >
-          <div className="container mx-auto px-4">
-            <Button
-              onClick={() => setShowLabProducts(false)}
-              variant="ghost"
-              className="text-white hover:bg-white/10 mb-4 -ml-2 touch-manipulation"
-            >
-              <ArrowLeft className="mr-2" size={20} />
-              Voltar para Categorias
-            </Button>
-            <h1 className="text-3xl md:text-5xl font-extrabold mb-2 md:mb-3">
-              Equipamentos de Laboratório
-            </h1>
-            <p className="text-gray-400 text-base md:text-lg max-w-3xl">
-              Linha completa de equipamentos para testes e desenvolvimento
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Products Grid */}
-        <section className="py-12 md:py-16">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
-              {labProducts.map((product, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                  onClick={() => handleLabProductClick(index)}
-                  className="group relative overflow-hidden rounded-2xl shadow-xl bg-white cursor-pointer"
-                >
-                  {/* Image */}
-                  <div className="h-64 md:h-80 overflow-hidden bg-gray-50">
-                    <img
-                      src={product.image}
-                      alt={product.title}
-                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110 p-4"
-                    />
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6 md:p-8 bg-gradient-to-t from-white to-gray-50">
-                    <h3 className="text-xl md:text-2xl font-extrabold mb-3 text-[#0A0A0A] leading-tight">
-                      {product.title}
-                    </h3>
-                    <p className="text-[#374151] mb-4 leading-relaxed">
-                      {product.description}
-                    </p>
-                    <span className="inline-flex items-center gap-2 text-[#FF5722] font-bold">
-                      Ver Detalhes
-                      <motion.span
-                        animate={{ x: [0, 5, 0] }}
-                        transition={{
-                          duration: 1.5,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                        }}
-                      >
-                        →
-                      </motion.span>
-                    </span>
-                  </div>
-
-                  {/* Orange Border on Hover */}
-                  <div className="absolute inset-0 border-4 border-transparent group-hover:border-[#FF5722] transition-colors duration-300 rounded-2xl pointer-events-none"></div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="py-16 md:py-20 bg-gray-50"
-        >
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-2xl md:text-4xl font-extrabold mb-3 md:mb-4 text-[#0A0A0A]">
-              Dúvidas Sobre Qual Equipamento Escolher?
-            </h2>
-            <p className="text-[#374151] text-base md:text-lg mb-6 md:mb-8 max-w-2xl mx-auto">
-              Nossa equipe técnica pode ajudar você a escolher o modelo ideal para sua produção
-            </p>
-            <Button
-              onClick={() => window.open(getWhatsAppUrl(), "_blank")}
-              className="bg-[#FF5722] hover:bg-[#E64A19] text-white rounded px-8 py-6 text-base md:text-lg font-bold shadow-lg"
-            >
-              Falar com Especialista
-            </Button>
-          </div>
-        </motion.section>
-      </div>
-    );
-  }
-
-  // Vista principal de categorias
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -712,7 +438,6 @@ export function ProductsPage({
         </div>
       </motion.div>
 
-      {/* Categories Section */}
       <section className="py-12 md:py-16">
         <div className="container mx-auto px-4">
           <motion.div
@@ -732,11 +457,10 @@ export function ProductsPage({
             </p>
           </motion.div>
 
-          {/* Categories Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {categories.map((category, index) => (
               <motion.div
-                key={index}
+                key={category.title}
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
@@ -744,14 +468,13 @@ export function ProductsPage({
                 whileTap={{ scale: 0.98 }}
                 onClick={() => {
                   if (category.hasProducts) {
-                    handleCategoryClick(category.title);
+                    setSelectedCategory(category.title as CategoryTitle);
                   }
                 }}
                 className={`group relative overflow-hidden rounded-2xl shadow-xl bg-white ${
-                  category.hasProducts ? 'cursor-pointer' : 'opacity-70'
+                  category.hasProducts ? "cursor-pointer" : "opacity-70"
                 } touch-manipulation`}
               >
-                {/* Image Background */}
                 <div className="h-56 md:h-64 overflow-hidden">
                   <img
                     src={category.image}
@@ -761,7 +484,6 @@ export function ProductsPage({
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/90 via-[#0A0A0A]/50 to-transparent"></div>
                 </div>
 
-                {/* Content */}
                 <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6 text-white">
                   <motion.div
                     className="mb-3 md:mb-4"
@@ -785,7 +507,6 @@ export function ProductsPage({
                     {category.description}
                   </p>
 
-                  {/* Hover Button */}
                   {category.hasProducts && (
                     <motion.div
                       initial={{ opacity: 0, x: -20 }}
@@ -809,7 +530,6 @@ export function ProductsPage({
                   )}
                 </div>
 
-                {/* Orange Border on Hover */}
                 {category.hasProducts && (
                   <div className="absolute inset-0 border-4 border-transparent group-hover:border-[#FF5722] transition-colors duration-300 rounded-2xl pointer-events-none"></div>
                 )}
@@ -819,7 +539,6 @@ export function ProductsPage({
         </div>
       </section>
 
-      {/* CTA Section */}
       <motion.section
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
