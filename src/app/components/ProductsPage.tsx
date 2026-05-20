@@ -73,37 +73,43 @@ const labProducts = [
 
 const semiProducts = [
   {
-    title: "PHENIXTRON",
+    title: "PHENIXTRON LEVANTAMENTO PARALELO",
     description: "Impressora semi automática para produção industrial",
-    image: copymasterImg,
+    image: "https://i.postimg.cc/VLBGzkPS/phenixtron-levantamento-paralelo-png.jpg",
+    route: "/impressora-serigrafica-semi-automatica-phenixtron",
   },
   {
     title: "IMPRESSORA SERIGRÁFICA SEMI AUTOMÁTICA BOCA DE JACARÉ",
     description: "Sistema semi automático para produção contínua",
     image: "https://i.postimg.cc/y8YQfCgc/phenixtron-boca-de-jacare-png.png",
+    route: "/impressora-serigrafica-semi-automatica-boca-de-jacare",
   },
   {
-    title: "MESA TÉRMICA",
+    title: "MESA TÉRMICA PHENIX",
     description: "Equipamento térmico para processos industriais",
     image: "https://i.postimg.cc/bJVTZZNR/mesa-termica-phenix-png.jpg",
+    route: "/mesa-termica-phenix",
   },
 ];
 
 const dryingProducts = [
   {
-    title: "VULCAN PHENIX",
+    title: "VULCAMPHENIX",
     description: "Sistema de secagem e cura industrial",
-    image: "https://i.postimg.cc/6qkYcNhb/Gemini-Generated-Image-jb7v02jb7v02jb7v.png",
+    image: "https://i.postimg.cc/PfFZYGbL/vulcamphenix-png.jpg",
+    route: "/vulcan-phenix",
   },
   {
-    title: "FLASH CURE",
+    title: "FLASH CURE PHENIX",
     description: "Cura rápida para produção serigráfica",
-    image:  "https://i.postimg.cc/jd4bBT86/flash-cure-phenix-png.jpg",
+    image: "https://i.postimg.cc/jd4bBT86/flash-cure-phenix-png.jpg",
+    route: "/flash-cure",
   },
   {
-    title: "CURADORA UV",
+    title: "CURADORA UV PHENIX",
     description: "Sistema UV industrial para cura e acabamento",
     image: "https://i.postimg.cc/cJg1pjtx/curadora-uv-phenix-png.jpg",
+    route: "/curadora-uv-phenix",
   },
 ];
 
@@ -225,31 +231,7 @@ export function ProductsPage({
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                  onClick={() => {
-                    if (index === 0) {
-                      onNavigateToProduct?.("/impressora-serigrafica-semi-automatica-phenixtron");
-                    }
-
-                    if (index === 1) {
-                      onNavigateToProduct?.("/pratika");
-                    }
-
-                    if (index === 2) {
-                      onNavigateToProduct?.("/curadora-uv");
-                    }
-
-                    if (index === 3) {
-                      onNavigateToProduct?.("/vulcan-phenix");
-                    }
-
-                    if (index === 4) {
-                      onNavigateToProduct?.("/mesa-termica");
-                    }
-
-                    if (index === 5) {
-                      onNavigateToProduct?.("/flash-cure");
-                    }
-                  }}
+                  onClick={() => onNavigateToProduct?.(product.route)}
                   className="group relative overflow-hidden rounded-2xl shadow-xl bg-white cursor-pointer"
                 >
                   {/* Image */}
@@ -359,7 +341,7 @@ export function ProductsPage({
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                  onClick={() => handleDryingProductClick(index)}
+                  onClick={() => onNavigateToProduct?.(product.route)}
                   className="group relative overflow-hidden rounded-2xl shadow-xl bg-white cursor-pointer"
                 >
                   {/* Image */}
