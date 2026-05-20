@@ -31,6 +31,7 @@ const categories = [
     icon: Hand,
     description: "Máquinas operadas manualmente para controle total",
     image: "https://images.unsplash.com/photo-1581508512961-0e3b9524db40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYW51YWwlMjBzY3JlZW4lMjBwcmludGluZyUyMHByZXNzfGVufDF8fHx8MTc3MDMwNjMyMXww&ixlib=rb-4.1.0&q=80&w=1080",
+    hasProducts: true,
   },
   {
     title: "SECAGEM / CURA",
@@ -68,6 +69,57 @@ const labProducts = [
     title: "Misturador de Tintas",
     description: "Homogeneização perfeita de cores e aditivos",
     image: misturadorImg,
+  },
+];
+
+const manualProducts = [
+  {
+    title: "MESA TÉRMICA PHENIX",
+    description: "Equipamento térmico para processos industriais",
+    image: "https://i.postimg.cc/bJVTZZNR/mesa-termica-phenix-png.jpg",
+    route: "/mesa-termica-phenix",
+  },
+  {
+    title: "MESA COM BERÇO FRIO PHENIX",
+    description: "Mesa manual com berço frio para estabilidade e precisão no processo serigráfico",
+    image: "https://i.postimg.cc/G3BNkRwB/immesa-com-berco-frio-phenix-pngage.jpg",
+    route: "/mesa-com-berco-frio-phenix",
+  },
+  {
+    title: "MESA TÉRMICA METÁLICA PHENIX 6x1",
+    description: "Mesa térmica metálica com seis berços para processos produtivos manuais",
+    image: "https://i.postimg.cc/9FbG0487/mesa-termica-metalica-phenix-6x1-png.jpg",
+    route: "/mesa-termica-metalica-phenix-6x1",
+  },
+  {
+    title: "IMPRESSORA CILÍNDRICA PHENIX",
+    description: "Equipamento manual para impressão serigráfica em superfícies cilíndricas",
+    image: "https://i.postimg.cc/9FbG0487/mesa-termica-metalica-phenix-6x1-png.jpg",
+    route: "/impressora-cilindrica-phenix",
+  },
+  {
+    title: "IMPRESSORA EM ROLO PHENIX",
+    description: "Impressora para processos contínuos com materiais em rolo",
+    image: "https://i.postimg.cc/c4tS4Y4Y/impressora-em-rolo-phenix-png.jpg",
+    route: "/impressora-em-rolo-phenix",
+  },
+  {
+    title: "IMPRESSORA TÊXTIL CARROSSEL PHENIX",
+    description: "Equipamento para impressão têxtil em escala com sistema carrossel",
+    image: "https://i.postimg.cc/MGd4YKpJ/impressora-textil-carrossel-phenix-png.jpg",
+    route: "/impressora-textil-carrossel-phenix",
+  },
+  {
+    title: "IMPRESSORA MANUAL HIPERPRESS PHENIX",
+    description: "Impressora manual para processos serigráficos com precisão e controle",
+    image: "https://i.postimg.cc/8PgSccFn/impressora-manual-hiperpress-phenix-png.jpg",
+    route: "/impressora-manual-hiperpress-phenix",
+  },
+  {
+    title: "IMPRESSORA MANUAL MODELO PRACTIKA PHENIX",
+    description: "Impressora manual modelo Practika para aplicações serigráficas profissionais",
+    image: "https://i.postimg.cc/c4FXj5N2/impressora-manual-modelo-practika-phenix-png.jpg",
+    route: "/impressora-manual-modelo-practika-phenix",
   },
 ];
 
@@ -139,6 +191,7 @@ export function ProductsPage({
   const [showDryingProducts, setShowDryingProducts] = useState(false);
   const [showLabProducts, setShowLabProducts] = useState(false);
   const [showSemiProducts, setShowSemiProducts] = useState(false);
+  const [showManualProducts, setShowManualProducts] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
     onBack();
@@ -155,6 +208,8 @@ export function ProductsPage({
       setShowLabProducts(true);
     } else if (categoryTitle === "SEMI AUTOMÁTICAS") {
       setShowSemiProducts(true);
+    } else if (categoryTitle === "MANUAIS") {
+      setShowManualProducts(true);
     } else if (categoryTitle === "SECAGEM / CURA") {
       setShowDryingProducts(true);
     }
@@ -190,6 +245,115 @@ export function ProductsPage({
         break;
     }
   };
+
+  // Se está mostrando produtos manuais
+  if (showManualProducts) {
+    return (
+      <div className="min-h-screen bg-white">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="bg-[#0A0A0A] text-white py-6 md:py-8 sticky top-0 z-40 shadow-lg"
+        >
+          <div className="container mx-auto px-4">
+            <Button
+              onClick={() => setShowManualProducts(false)}
+              variant="ghost"
+              className="text-white hover:bg-white/10 mb-4 -ml-2 touch-manipulation"
+            >
+              <ArrowLeft className="mr-2" size={20} />
+              Voltar para Categorias
+            </Button>
+            <h1 className="text-3xl md:text-5xl font-extrabold mb-2 md:mb-3">
+              Máquinas Manuais
+            </h1>
+            <p className="text-gray-400 text-base md:text-lg max-w-3xl">
+              Equipamentos manuais para processos serigráficos com controle, precisão e produtividade
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Products Grid */}
+        <section className="py-12 md:py-16">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
+              {manualProducts.map((product, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                  onClick={() => onNavigateToProduct?.(product.route)}
+                  className="group relative overflow-hidden rounded-2xl shadow-xl bg-white cursor-pointer"
+                >
+                  {/* Image */}
+                  <div className="h-64 md:h-80 overflow-hidden bg-gray-50">
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110 p-4"
+                    />
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6 md:p-8 bg-gradient-to-t from-white to-gray-50">
+                    <h3 className="text-xl md:text-2xl font-extrabold mb-3 text-[#0A0A0A] leading-tight">
+                      {product.title}
+                    </h3>
+                    <p className="text-[#374151] mb-4 leading-relaxed">
+                      {product.description}
+                    </p>
+                    <span className="inline-flex items-center gap-2 text-[#FF5722] font-bold">
+                      Ver Detalhes
+                      <motion.span
+                        animate={{ x: [0, 5, 0] }}
+                        transition={{
+                          duration: 1.5,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                        }}
+                      >
+                        →
+                      </motion.span>
+                    </span>
+                  </div>
+
+                  {/* Orange Border on Hover */}
+                  <div className="absolute inset-0 border-4 border-transparent group-hover:border-[#FF5722] transition-colors duration-300 rounded-2xl pointer-events-none"></div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="py-16 md:py-20 bg-gray-50"
+        >
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-2xl md:text-4xl font-extrabold mb-3 md:mb-4 text-[#0A0A0A]">
+              Dúvidas Sobre Qual Equipamento Escolher?
+            </h2>
+            <p className="text-[#374151] text-base md:text-lg mb-6 md:mb-8 max-w-2xl mx-auto">
+              Nossa equipe técnica pode ajudar você a escolher o modelo ideal para sua produção
+            </p>
+            <Button
+              onClick={() => window.open(getWhatsAppUrl(), "_blank")}
+              className="bg-[#FF5722] hover:bg-[#E64A19] text-white rounded px-8 py-6 text-base md:text-lg font-bold shadow-lg"
+            >
+              Falar com Especialista
+            </Button>
+          </div>
+        </motion.section>
+      </div>
+    );
+  }
 
   // Se está mostrando produtos semi automáticos
   if (showSemiProducts) {
